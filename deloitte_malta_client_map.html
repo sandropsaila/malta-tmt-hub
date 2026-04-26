@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deloitte Malta – Client Map + Contacts</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --g:#86BC24; --gd:#5C8A00; --gl:#F0F8DC;
+  --blk:#111; --mid:#666; --bg:#F4F4F1; --wht:#fff; --ln:#E4E4DE;
+  --c-ig:#2563EB; --l-ig:#EFF6FF;
+  --c-ft:#7C3AED; --l-ft:#F5F3FF;
+  --c-sm:#DC2626; --l-sm:#FEF2F2;
+  --c-sa:#059669; --l-sa:#ECFDF5;
+  --c-cr:#D97706; --l-cr:#FFFBEB;
+}
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--blk); padding:24px 16px 60px; }
+
+/* ── HEADER */
+.hdr { max-width:700px; margin:0 auto 20px; opacity:0; animation:up .5s ease forwards; }
+.badge { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gd); margin-bottom:8px; }
+.dot { width:6px;height:6px;background:var(--g);border-radius:50%; }
+h1 { font-family:'Syne',sans-serif; font-size:clamp(20px,5vw,30px); font-weight:800; line-height:1.1; color:var(--blk); margin-bottom:6px; }
+h1 em { color:var(--gd); font-style:normal; }
+.sub { font-size:12.5px; color:var(--mid); font-weight:300; line-height:1.6; }
+
+/* ── STATS */
+.stats { max-width:700px; margin:0 auto 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; opacity:0; animation:up .5s .07s ease forwards; }
+.stat { background:var(--wht); border:1px solid var(--ln); border-radius:8px; padding:12px 14px; border-top:3px solid var(--g); }
+.stat-n { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; color:var(--g); line-height:1; }
+.stat-l { font-size:9.5px; color:var(--mid); font-weight:400; margin-top:3px; line-height:1.3; }
+
+/* ── SERVICE KEY */
+.skey { max-width:700px; margin:0 auto 18px; background:var(--wht); border:1px solid var(--ln); border-radius:8px; padding:11px 14px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; opacity:0; animation:up .5s .12s ease forwards; }
+.skey-ttl { font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--mid); }
+.sk { display:flex;align-items:center;gap:5px;font-size:11px;color:var(--mid); }
+.sk-dot { width:8px;height:8px;border-radius:2px;flex-shrink:0; }
+
+/* ── LEGEND */
+.legend { max-width:700px; margin:0 auto 26px; display:flex; gap:16px; flex-wrap:wrap; opacity:0; animation:up .5s .16s ease forwards; }
+.legend-item { display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:500;color:var(--mid); }
+.legend-dot { width:10px;height:10px;border-radius:2px; }
+
+/* ── SEGMENTS */
+.segments { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:24px; }
+
+/* ── SEGMENT BLOCK */
+.segment { background:var(--wht); border-radius:8px; border:1px solid var(--ln); overflow:hidden; opacity:0; transform:translateY(14px); animation:up .5s ease forwards; }
+.segment:nth-child(1){animation-delay:.18s} .segment:nth-child(2){animation-delay:.26s}
+.segment:nth-child(3){animation-delay:.34s} .segment:nth-child(4){animation-delay:.42s}
+.segment:nth-child(5){animation-delay:.50s}
+
+.seg-header { padding:16px 18px 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ln); }
+.seg-left { display:flex;align-items:center;gap:10px; }
+.seg-icon { width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0; }
+.seg-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:var(--blk); line-height:1.2; }
+.seg-subtitle { font-size:10.5px; color:var(--mid); font-weight:300; margin-top:2px; }
+.p-pill { font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:3px 10px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
+
+/* ── CLIENT CARD */
+.card { border-bottom:1px solid var(--ln); }
+.card:last-child { border-bottom:none; }
+
+/* Card trigger row */
+.card-trigger {
+  display:flex; align-items:center; gap:10px;
+  padding:13px 18px; cursor:pointer;
+  transition:background .15s;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.card-trigger:hover { background:#FAFCF3; }
+
+.ct-bar { width:3px; height:38px; border-radius:2px; flex-shrink:0; }
+.ct-main { flex:1; min-width:0; }
+.ct-name { font-size:13px; font-weight:600; color:var(--blk); margin-bottom:2px; }
+.ct-size { font-size:10.5px; color:#AAAAAA; font-weight:400; }
+.ct-right { display:flex; flex-direction:column; align-items:flex-end; gap:4px; flex-shrink:0; }
+
+/* Service tags */
+.stags { display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end; }
+.stag { font-size:9.5px; font-weight:500; padding:2px 7px; border-radius:3px; white-space:nowrap; }
+.s-r { background:var(--gl); color:var(--gd); }
+.s-p { background:#FFF3E0; color:#92400E; }
+.s-b { background:#EDE9FE; color:#5B21B6; }
+
+/* Chevron */
+.chev { font-size:11px; color:var(--mid); transition:transform .25s; }
+.card.open .chev { transform:rotate(180deg); }
+
+/* ── EXPANDABLE PANEL */
+.card-panel { display:none; border-top:1px solid var(--ln); background:#FAFAF7; }
+.card.open .card-panel { display:block; }
+
+/* Tab nav */
+.tab-nav { display:flex; border-bottom:1px solid var(--ln); }
+.tab-btn {
+  flex:1; padding:9px 6px; font-size:11px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--mid);
+  background:none; border:none; cursor:pointer;
+  border-bottom:2px solid transparent; margin-bottom:-1px;
+  transition:color .15s, border-color .15s;
+}
+.tab-btn.active { color:var(--gd); border-bottom-color:var(--g); }
+
+/* Tab content */
+.tab-content { padding:14px 18px; display:none; }
+.tab-content.active { display:block; }
+
+/* Rationale */
+.rat-lbl { font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gd); margin-bottom:6px; }
+.rat-txt { font-size:12px; font-weight:300; color:var(--mid); line-height:1.7; }
+
+/* Contact entries */
+.contact-entry { background:var(--wht); border:1px solid var(--ln); border-radius:8px; padding:11px 13px; margin-bottom:8px; }
+.contact-entry:last-child { margin-bottom:0; }
+.ce-head { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:7px; }
+.ce-name { font-size:12.5px; font-weight:600; color:var(--blk); }
+.ce-title { font-size:10.5px; color:var(--mid); font-weight:300; margin-top:2px; line-height:1.4; }
+.conf-v { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#DCFCE7; color:#166534; white-space:nowrap; flex-shrink:0; }
+.conf-p { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#FEF9C3; color:#854D0E; white-space:nowrap; flex-shrink:0; }
+
+.ce-links { display:flex; flex-wrap:wrap; gap:5px; }
+.cl { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:500; padding:3px 8px; border-radius:4px; text-decoration:none; transition:opacity .15s; }
+.cl:hover { opacity:.75; }
+.cl-email { background:var(--gl); color:var(--gd); }
+.cl-li    { background:#EFF6FF; color:#1D4ED8; }
+.cl-web   { background:#F3F4F6; color:#374151; }
+.cl-gen   { background:#F5F3FF; color:#5B21B6; }
+
+.contact-note { font-size:10.5px; color:#AAAAAA; font-style:italic; padding-top:8px; line-height:1.5; }
+
+/* ── INSIGHT STRIP */
+.strip { max-width:700px; margin:28px auto 0; background:var(--blk); border-radius:10px; padding:20px 16px; display:grid; grid-template-columns:1fr 1fr; gap:16px; opacity:0; animation:up .5s .6s ease forwards; }
+.i-num { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--g); margin-bottom:3px; }
+.i-lbl { font-size:11px; color:#AAAAAA; font-weight:300; line-height:1.5; }
+
+/* ── FOOTER */
+.foot { max-width:700px; margin:14px auto 0; font-size:10.5px; color:#AAAAAA; font-weight:300; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+
+@keyframes up { to{opacity:1;transform:translateY(0)} }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="badge"><span class="dot"></span>Deloitte Malta — TMT Practice</div>
+  <h1>Client Map &amp;<br><em>Contact Directory</em></h1>
+  <p class="sub">Tap any client to expand the rationale, recommended services, and verified key contacts — all in one place.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">€4.6B</div><div class="stat-l">Malta startup ecosystem value</div></div>
+  <div class="stat"><div class="stat-n">25%</div><div class="stat-l">Tech share of Malta GDP</div></div>
+  <div class="stat"><div class="stat-n">20+</div><div class="stat-l">Named prospects mapped</div></div>
+</div>
+
+<!-- SERVICE KEY -->
+<div class="skey">
+  <span class="skey-ttl">Key&nbsp;</span>
+  <div class="sk"><span class="sk-dot" style="background:#86BC24"></span>Regulatory / Audit / Tax</div>
+  <div class="sk"><span class="sk-dot" style="background:#D97706"></span>Payroll</div>
+  <div class="sk"><span class="sk-dot" style="background:#7C3AED"></span>Bookkeeping</div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:#2563EB"></span>iGaming</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#7C3AED"></span>Fintech</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#DC2626"></span>Semiconductor</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#059669"></span>SaaS / Cloud</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#D97706"></span>Crypto</div>
+</div>
+
+<div class="segments">
+
+<!-- ══════════════════════════════════
+     1  iGAMING
+══════════════════════════════════ -->
+<div class="segment">
+  <div class="seg-header">
+    <div class="seg-left">
+      <div class="seg-icon" style="background:var(--l-ig)">🎮</div>
+      <div>
+        <div class="seg-title">iGaming Operators &amp; Suppliers</div>
+        <div class="seg-subtitle">MGA-licensed — Malta's largest tech segment</div>
+      </div>
+    </div>
+    <div class="p-pill" style="background:var(--l-ig);color:var(--c-ig)">Priority 1</div>
+  </div>
+
+  <!-- BETSSON -->
+  <div class="card" id="c-betsson">
+    <div class="card-trigger" onclick="toggle('c-betsson')">
+      <div class="ct-bar" style="background:var(--c-ig)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Betsson Group</div>
+        <div class="ct-size">~2,700 staff · Ta' Xbiex, Malta · betssongroup.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">AI Act</span><span class="stag s-r">Audit</span><span class="stag s-r">Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-betsson','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-betsson','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">One of Europe's largest gaming groups with a deep Malta operational headquarters in Ta' Xbiex. Rising MGA regulatory pressure, growing AI use in personalisation and risk-scoring (EU AI Act exposure), and complex expatriate payroll structures create multiple simultaneous entry points. Deloitte Malta has already collaborated with iGaming operators on AI analytics — Betsson is a natural high-priority target for an expanded relationship.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Jesper Svensson</div><div class="ce-title">Operational CEO, Betsson Group · Based in Sliema, Malta</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:jesper.svensson@betssongroup.com">jesper.svensson@betssongroup.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/jesper-svensson-betsson" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">CFO Operations (K.S.)</div><div class="ce-title">Initials only publicly available — verify via LinkedIn People search</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/betsson-group/people/" target="_blank">LinkedIn People</a>
+            <a class="cl cl-web" href="https://betssongroup.com/contact-us/" target="_blank">Corporate contact form</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @betssongroup.com · Format: firstname.lastname@betssongroup.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVOLUTION -->
+  <div class="card" id="c-evolution">
+    <div class="card-trigger" onclick="toggle('c-evolution')">
+      <div class="ct-bar" style="background:var(--c-ig)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Evolution Gaming</div>
+        <div class="ct-size">13,000+ globally · St Julian's, Malta · evolution.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">SOC 2</span><span class="stag s-r">ISAE 3402</span><span class="stag s-r">Cyber</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-evolution','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-evolution','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Operates large live-streaming studios in Malta. Enterprise casino clients increasingly require SOC 2 / ISAE 3402 attestation before contracting — an urgent readiness need. Cybersecurity of live-streaming and RNG environments is a key audit focus. Large and growing Malta headcount makes payroll outsourcing for a multinational workforce, combined with local bookkeeping, a natural low-friction entry point.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Martin Carlesund</div><div class="ce-title">Group CEO · Evolution Gaming · Malta-based</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:martin.carlesund@evolution.com">martin.carlesund@evolution.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/martin-carlesund" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Joakim Renman</div><div class="ce-title">CFO · Evolution (joined Feb 2025)</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-web" href="https://www.evolution.com/investors/ir-contacts/" target="_blank">IR Contacts page</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Julia Simonsson</div><div class="ce-title">Chief Legal, Compliance &amp; Risk Officer · Evolution</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/evolution-global/people/" target="_blank">LinkedIn People</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @evolution.com · Format: firstname.lastname@evolution.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRAGMATIC PLAY -->
+  <div class="card" id="c-pragmatic">
+    <div class="card-trigger" onclick="toggle('c-pragmatic')">
+      <div class="ct-bar" style="background:var(--c-ig)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Pragmatic Play</div>
+        <div class="ct-size">Fast-scaling B2B supplier · Sliema, Malta · pragmaticplay.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">Risk Advisory</span><span class="stag s-r">AI Act</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-pragmatic','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-pragmatic','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Scaled extremely quickly globally — governance and financial reporting infrastructure typically lags that pace. AI-powered game recommendation and player analytics tools are likely in EU AI Act scope. Needs structured risk advisory and financial controls to support international expansion and a potential future listing. Bookkeeping support is needed now; payroll grows with headcount.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Julian Jarvis</div><div class="ce-title">CEO &amp; Co-Founder · Pragmatic Play · Gibraltar/Malta</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:julian.jarvis@pragmaticplay.com">julian.jarvis@pragmaticplay.com</a>
+            <a class="cl cl-li" href="https://gi.linkedin.com/in/julianjarvis" target="_blank">LinkedIn</a>
+            <a class="cl cl-gen" href="mailto:sales@pragmaticplay.com">sales@pragmaticplay.com</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Irina Cornides</div><div class="ce-title">Chief Operating Officer · Pragmatic Play</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:irina.cornides@pragmaticplay.com">irina.cornides@pragmaticplay.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/irina-cornides" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @pragmaticplay.com · Format confirmed: firstname.lastname@pragmaticplay.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPICO / KINDRED / LEOVEGAS -->
+  <div class="card" id="c-mga-ops">
+    <div class="card-trigger" onclick="toggle('c-mga-ops')">
+      <div class="ct-bar" style="background:var(--c-ig)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Tipico / Kindred / LeoVegas</div>
+        <div class="ct-size">Major MGA operators · Significant Malta headcount each</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">Compliance</span><span class="stag s-r">Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-mga-ops','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-mga-ops','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">All MGA-licensed with compliance teams under pressure from responsible gambling, AML, and AI Act obligations. Malta entities need local audit, tax structuring for expatriate staff, and efficient payroll for multinational workforces. Bookkeeping outsourcing is especially valuable where finance teams are lean relative to headcount. One engagement can open doors across all three brands.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Finance / Compliance Directors (Malta)</div><div class="ce-title">Each company has Malta-based finance and compliance leads — find via LinkedIn filtered to Malta + company name + Director/CFO</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/tipico/people/" target="_blank">Tipico LinkedIn</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/kindred-group/people/" target="_blank">Kindred LinkedIn</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/leovegas/people/" target="_blank">LeoVegas LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domains: @tipico.com · @kindredgroup.com · @leovegas.com · Format: firstname.lastname@ for all three</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /iGaming -->
+
+
+<!-- ══════════════════════════════════
+     2  FINTECH
+══════════════════════════════════ -->
+<div class="segment">
+  <div class="seg-header">
+    <div class="seg-left">
+      <div class="seg-icon" style="background:var(--l-ft)">💳</div>
+      <div>
+        <div class="seg-title">Fintech &amp; Payments</div>
+        <div class="seg-subtitle">MFSA-regulated — DORA in force, PSD3 incoming</div>
+      </div>
+    </div>
+    <div class="p-pill" style="background:var(--l-ft);color:var(--c-ft)">Priority 1</div>
+  </div>
+
+  <!-- FYORIN -->
+  <div class="card" id="c-fyorin">
+    <div class="card-trigger" onclick="toggle('c-fyorin')">
+      <div class="ct-bar" style="background:var(--c-ft)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Fyorin</div>
+        <div class="ct-size">Payments platform · Birkirkara, Malta · fyorin.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">ISAE 3402</span><span class="stag s-r">DORA</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-fyorin','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-fyorin','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Malta-founded payments platform scaling rapidly into enterprise markets. Enterprise clients increasingly require ISAE 3402 / SOC 2 attestation before signing — becoming a commercial blocker. DORA obligations apply as a cross-border payment processor. At Series A stage, the finance team is lean: bookkeeping and payroll outsourcing frees leadership to focus on growth while establishing Deloitte as a long-term partner from the ground up.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">James Camilleri</div><div class="ce-title">Co-Founder &amp; CEO · Fyorin · Malta-based</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:james@fyorin.com">james@fyorin.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/jamescamilleri" target="_blank">LinkedIn</a>
+            <a class="cl cl-gen" href="mailto:sales@fyorin.com">sales@fyorin.com</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Christian Joseph Agius</div><div class="ce-title">Co-Founder &amp; COO/CFO · Fyorin · Malta-based</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:christian@fyorin.com">christian@fyorin.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/christianjosephagius" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Office: Level 2A, Triq is-Salib tal-Imriehel, Zone 3, CBD, Birkirkara · Domain: @fyorin.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREDORAX -->
+  <div class="card" id="c-credorax">
+    <div class="card-trigger" onclick="toggle('c-credorax')">
+      <div class="ct-bar" style="background:var(--c-ft)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Credorax / Bluesnap</div>
+        <div class="ct-size">Payment processor · Malta entity · bluesnap.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">DORA ROI</span><span class="stag s-r">Cyber</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-credorax','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-credorax','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">As a processor supplying financial institutions, Credorax is subject to DORA as a critical third-party ICT provider. The annual Register of Information (ROI) submission cycle creates a recurring compliance mandate Deloitte can own year after year. Cybersecurity assessments of payment infrastructure complement this naturally. Payroll for a mid-size Malta team is a low-friction entry point that builds the relationship.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Finance / Compliance Director (Malta)</div><div class="ce-title">Post-Credorax merger with BlueSnap — Malta entity leads best found via LinkedIn filtered to Malta + BlueSnap + Director</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/bluesnap/people/" target="_blank">BlueSnap LinkedIn</a>
+            <a class="cl cl-web" href="https://home.bluesnap.com/contact/" target="_blank">bluesnap.com/contact</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @bluesnap.com · Format: firstname.lastname@bluesnap.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BINANCE / OKX -->
+  <div class="card" id="c-crypto-ft">
+    <div class="card-trigger" onclick="toggle('c-crypto-ft')">
+      <div class="ct-bar" style="background:var(--c-ft)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Binance / OKX (Malta ops)</div>
+        <div class="ct-size">Global crypto exchanges · EU regulatory base in Malta</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">MiCA</span><span class="stag s-r">AI Act</span><span class="stag s-r">AML</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-crypto-ft','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-crypto-ft','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">MiCA is now in force, requiring CASP licensing, ongoing disclosures, and whitepaper obligations. AI use in trading, risk-scoring, and AML puts them in EU AI Act scope. High-value advisory mandates with significant complexity. Malta entity financial reporting and payroll for local staff are natural bundled services alongside the regulatory advisory work.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Malta Compliance / Legal Director</div><div class="ce-title">Both maintain Malta-licensed entities with local compliance officers — search LinkedIn "Binance Malta" or "OKX Malta" + Compliance/Legal</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/binance/people/" target="_blank">Binance LinkedIn</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/okx/people/" target="_blank">OKX LinkedIn</a>
+            <a class="cl cl-gen" href="mailto:compliance@binance.com">compliance@binance.com</a>
+          </div>
+        </div>
+        <div class="contact-note">Domains: @binance.com / @okx.com · Best via LinkedIn filtered to Malta + Compliance title</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAYPAL -->
+  <div class="card" id="c-paypal">
+    <div class="card-trigger" onclick="toggle('c-paypal')">
+      <div class="ct-bar" style="background:var(--c-ft)"></div>
+      <div class="ct-main">
+        <div class="ct-name">PayPal (Malta entity)</div>
+        <div class="ct-size">Global fintech · EU regulatory entity in Malta · paypal.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">Audit</span><span class="stag s-r">DORA</span><span class="stag s-r">Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-paypal','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-paypal','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">PayPal's Malta entity anchors part of its EU regulatory footprint. DORA applies to its payment systems. PSD3 will create further compliance obligations. The Malta entity requires local statutory audit, ongoing financial reporting, and payroll for local staff. Deloitte's global brand and regulatory depth are a strong credibility match for a household-name fintech.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Malta Country Manager / Legal Director</div><div class="ce-title">PayPal's Malta entity is primarily regulatory — best contacted via LinkedIn search "PayPal Malta" + Director/Manager</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/paypal/people/" target="_blank">PayPal LinkedIn</a>
+            <a class="cl cl-web" href="https://www.paypal.com/mt/webapps/mpp/contact-us" target="_blank">PayPal Malta contact</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @paypal.com · Format: firstname.lastname@paypal.com</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /Fintech -->
+
+
+<!-- ══════════════════════════════════
+     3  SEMICONDUCTOR
+══════════════════════════════════ -->
+<div class="segment">
+  <div class="seg-header">
+    <div class="seg-left">
+      <div class="seg-icon" style="background:var(--l-sm)">🔬</div>
+      <div>
+        <div class="seg-title">Semiconductor, Hardware &amp; Game Dev</div>
+        <div class="seg-subtitle">Manufacturing &amp; IP-heavy — CRA, NIS2 &amp; R&amp;D tax</div>
+      </div>
+    </div>
+    <div class="p-pill" style="background:var(--l-sm);color:var(--c-sm)">Priority 2</div>
+  </div>
+
+  <!-- STMicro -->
+  <div class="card" id="c-st">
+    <div class="card-trigger" onclick="toggle('c-st')">
+      <div class="ct-bar" style="background:var(--c-sm)"></div>
+      <div class="ct-main">
+        <div class="ct-name">STMicroelectronics Malta</div>
+        <div class="ct-size">1,800+ employees · Kirkop, Malta · st.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">CRA</span><span class="stag s-r">NIS2</span><span class="stag s-r">R&amp;D Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-st','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-st','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Malta's single largest tech employer. Semiconductor products on the EU market are directly in scope for the Cyber Resilience Act (CRA), requiring security-by-design processes by December 2027. NIS2 also applies. With 1,800+ employees, payroll at scale is a significant recurring contract in itself. R&amp;D tax credit advisory is a further high-value entry point given the level of local engineering activity.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Laurent Filipozzi</div><div class="ce-title">General Manager · STMicroelectronics Malta (Kirkop plant)</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:laurent.filipozzi@st.com">laurent.filipozzi@st.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/laurent-filipozzi" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Simon Bugeja</div><div class="ce-title">CTO · STMicroelectronics Malta</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:simon.bugeja@st.com">simon.bugeja@st.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/simon-bugeja" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @st.com · Address: Kirkop Industrial Estate, Kirkop, Malta</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MDIA HUB -->
+  <div class="card" id="c-hub">
+    <div class="card-trigger" onclick="toggle('c-hub')">
+      <div class="ct-bar" style="background:var(--c-sm)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Malta Digital Innovation Hub</div>
+        <div class="ct-size">Gov-backed · Cohort of 50+ tech companies</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">AI Workshops</span><span class="stag s-r">Startup Tax</span>
+          <span class="stag s-p">Payroll Setup</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-hub','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-hub','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">A relationship multiplier — one partnership gives Deloitte visibility across an entire cohort of emerging tech companies. Workshops on AI Act readiness, startup tax incentives, and bookkeeping can be delivered as hub events, generating qualified leads across multiple segments at low cost. Government alignment also reinforces Deloitte Malta's profile as the leading professional services firm for the tech sector.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">MDIA / Malta Digital Innovation Hub</div><div class="ce-title">Approach via Malta Enterprise or MDIA directly for partnership discussions</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-web" href="https://mdia.gov.mt/" target="_blank">mdia.gov.mt</a>
+            <a class="cl cl-gen" href="mailto:info@mdia.gov.mt">info@mdia.gov.mt</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/mdia-malta/" target="_blank">MDIA LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UBISOFT / EA -->
+  <div class="card" id="c-gamedev">
+    <div class="card-trigger" onclick="toggle('c-gamedev')">
+      <div class="ct-bar" style="background:var(--c-sm)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Ubisoft / EA Games Malta</div>
+        <div class="ct-size">Global studios · IP-heavy Malta operations</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">IP Valuation</span><span class="stag s-r">R&amp;D Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-gamedev','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-gamedev','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Both develop significant IP in Malta, creating R&amp;D tax relief and IP valuation opportunities. Transfer pricing is relevant given cross-border IP licensing within global groups. AI in game development — character generation, NPC behaviour, content moderation — brings EU AI Act obligations. Malta staff payroll for creative and technical teams is a steady, low-friction service to formalise the relationship.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Malta Studio Head / Finance Director</div><div class="ce-title">Search LinkedIn "Ubisoft Malta" or "EA Malta" + Director/Finance/Tax title</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/ubisoft/people/" target="_blank">Ubisoft LinkedIn</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/ea/people/" target="_blank">EA LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domains: @ubisoft.com / @ea.com · Format: firstname.lastname@ for both</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /Semiconductor -->
+
+
+<!-- ══════════════════════════════════
+     4  SaaS / CLOUD
+══════════════════════════════════ -->
+<div class="segment">
+  <div class="seg-header">
+    <div class="seg-left">
+      <div class="seg-icon" style="background:var(--l-sa)">☁️</div>
+      <div>
+        <div class="seg-title">SaaS &amp; Cloud-Native Companies</div>
+        <div class="seg-subtitle">Enterprise-facing — SOC 2 &amp; ISAE 3402 in demand</div>
+      </div>
+    </div>
+    <div class="p-pill" style="background:var(--l-sa);color:var(--c-sa)">Priority 2</div>
+  </div>
+
+  <!-- HOTJAR -->
+  <div class="card" id="c-hotjar">
+    <div class="card-trigger" onclick="toggle('c-hotjar')">
+      <div class="ct-bar" style="background:var(--c-sa)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Hotjar (Contentsquare)</div>
+        <div class="ct-size">Behaviour analytics SaaS · St Julian's, Malta · hotjar.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">SOC 2</span><span class="stag s-r">AI Act</span><span class="stag s-r">GDPR</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-hotjar','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-hotjar','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Handles massive volumes of behavioural user data for enterprise clients globally. Post-acquisition integration with Contentsquare creates a need for harmonised SOC 2 and GDPR compliance posture. AI-powered heatmaps and session recording tools are likely in scope for EU AI Act transparency obligations. The Malta entity needs bookkeeping and payroll support as it evolves within a larger group structure.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">David Darmanin</div><div class="ce-title">Founder &amp; Chairman · Hotjar / Contentsquare · Malta-based</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:david@hotjar.com">david@hotjar.com</a>
+            <a class="cl cl-li" href="https://it.linkedin.com/in/daviddarmanin" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Jonathan Vella</div><div class="ce-title">Co-Founder &amp; Head of Product · Hotjar · Malta-based</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:jonathan@hotjar.com">jonathan@hotjar.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/in/jonathanvella" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @hotjar.com · d***@hotjar.com format confirmed via RocketReach</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOUDWAYS -->
+  <div class="card" id="c-cloudways">
+    <div class="card-trigger" onclick="toggle('c-cloudways')">
+      <div class="ct-bar" style="background:var(--c-sa)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Cloudways (DigitalOcean)</div>
+        <div class="ct-size">Managed cloud hosting · Mosta, Malta · cloudways.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">ISAE 3402</span><span class="stag s-r">NIS2</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-cloudways','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-cloudways','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Cloud infrastructure provider — NIS2 may apply depending on client base and revenue thresholds. Enterprise clients increasingly demand ISAE 3402 assurance. Post-acquisition integration into DigitalOcean may require restructuring of Malta entity financials, creating a statutory audit and bookkeeping opportunity. Payroll for Malta-based engineering and support teams is an ongoing recurring service.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Malta Finance / Legal Director</div><div class="ce-title">Post-DigitalOcean acquisition — search LinkedIn "Cloudways Malta" or "DigitalOcean Malta" + Director/Finance</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/cloudways/people/" target="_blank">Cloudways LinkedIn</a>
+            <a class="cl cl-web" href="https://www.cloudways.com/en/contact.php" target="_blank">cloudways.com/contact</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @cloudways.com · Format: firstname.lastname@cloudways.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COVERY.AI -->
+  <div class="card" id="c-covery">
+    <div class="card-trigger" onclick="toggle('c-covery')">
+      <div class="ct-bar" style="background:var(--c-sa)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Covery.ai</div>
+        <div class="ct-size">AI fraud prevention SaaS · 1.5B+ records · Malta</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">AI Act (High-Risk)</span><span class="stag s-r">Cyber</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-covery','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-covery','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">AI-powered risk-scoring platform — almost certainly a high-risk AI system under the EU AI Act, given its automated decision-making impact on financial services clients. Mandatory conformity assessments, audit trails, and explainability requirements apply before August 2026. Deloitte can lead the full compliance journey from classification through to documentation and ongoing monitoring. Early engagement is critical given the deadline.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">CEO / Head of Compliance</div><div class="ce-title">Small Malta-based scale-up — founders and leadership best reached via LinkedIn or website contact form</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/covery-ai/people/" target="_blank">Covery.ai LinkedIn</a>
+            <a class="cl cl-web" href="https://covery.ai/contact/" target="_blank">covery.ai/contact</a>
+            <a class="cl cl-gen" href="mailto:info@covery.ai">info@covery.ai</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @covery.ai · Direct founder outreach via LinkedIn most effective</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BINDERR / CLEVERBIT -->
+  <div class="card" id="c-saas-small">
+    <div class="card-trigger" onclick="toggle('c-saas-small')">
+      <div class="ct-bar" style="background:var(--c-sa)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Binderr / Cleverbit / Scale-Ups</div>
+        <div class="ct-size">B2B SaaS · Malta-incorporated · Growing fast</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">SOC 2</span><span class="stag s-r">Startup Tax</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-saas-small','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-saas-small','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">At the stage where enterprise contract requirements begin to impose compliance demands. SOC 2 readiness is the most common blocker to landing large clients. Bookkeeping and payroll outsourcing is a natural fit for lean finance teams. Targeting these companies early lets Deloitte establish an anchor relationship that grows with the client — starting with operational services and expanding into regulatory advisory as complexity increases.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Founders / CEOs</div><div class="ce-title">All are Malta-incorporated with publicly visible founder teams on LinkedIn and their own websites</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/binderr/people/" target="_blank">Binderr LinkedIn</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/cleverbit-software/people/" target="_blank">Cleverbit LinkedIn</a>
+            <a class="cl cl-web" href="https://binderr.com/contact" target="_blank">binderr.com/contact</a>
+          </div>
+        </div>
+        <div class="contact-note">Domains: @binderr.com / @cleverbit.com · Best approach: direct LinkedIn outreach to founder/CEO</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /SaaS -->
+
+
+<!-- ══════════════════════════════════
+     5  CRYPTO / BLOCKCHAIN
+══════════════════════════════════ -->
+<div class="segment">
+  <div class="seg-header">
+    <div class="seg-left">
+      <div class="seg-icon" style="background:var(--l-cr)">⛓️</div>
+      <div>
+        <div class="seg-title">Crypto, Blockchain &amp; DeFi</div>
+        <div class="seg-subtitle">VFA-regulated — MiCA in force, AI Act overlaps</div>
+      </div>
+    </div>
+    <div class="p-pill" style="background:var(--l-cr);color:var(--c-cr)">Priority 3</div>
+  </div>
+
+  <!-- VAIOT -->
+  <div class="card" id="c-vaiot">
+    <div class="card-trigger" onclick="toggle('c-vaiot')">
+      <div class="ct-bar" style="background:var(--c-cr)"></div>
+      <div class="ct-main">
+        <div class="ct-name">VAIOT</div>
+        <div class="ct-size">AI + Blockchain · Mosta, Malta · VFA-regulated · vaiot.ai</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">AI Act</span><span class="stag s-r">MiCA</span><span class="stag s-r">VFA</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-vaiot','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-vaiot','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">A rare convergence of AI and blockchain in a single Malta-regulated entity. Faces simultaneous MiCA transition and EU AI Act obligations — its AI contract and legal automation tools are almost certainly high-risk AI systems. This dual regulatory burden creates a significant advisory window. Small team means bookkeeping and payroll outsourcing is an immediately welcomed operational relief.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Pawel Stopczynski</div><div class="ce-title">CEO · VAIOT (current — confirmed via LinkedIn announcement)</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:pawel.stopczynski@vaiot.ai">pawel.stopczynski@vaiot.ai</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/vaiot-ltd/people/" target="_blank">LinkedIn People</a>
+            <a class="cl cl-gen" href="mailto:contact@vaiot.ai">contact@vaiot.ai</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Christoph Surgowt</div><div class="ce-title">Co-Founder (former CEO) · Still active in advisory capacity</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://mt.linkedin.com/in/christoph-surgowt-0740221b" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @vaiot.ai · VFA Agent: Grant Thornton Malta (warm introduction possible)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHILIZ -->
+  <div class="card" id="c-chiliz">
+    <div class="card-trigger" onclick="toggle('c-chiliz')">
+      <div class="ct-bar" style="background:var(--c-cr)"></div>
+      <div class="ct-main">
+        <div class="ct-name">Chiliz / Socios.com</div>
+        <div class="ct-size">Fan token blockchain · Malta (Mediarex) · chiliz.com</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">MiCA</span><span class="stag s-r">AI Act</span><span class="stag s-r">Audit</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-chiliz','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-chiliz','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">Fan tokens are crypto-assets under MiCA, triggering whitepaper and ongoing disclosure obligations. AI-driven fan personalisation tools may carry EU AI Act obligations. Malta-headquartered with significant institutional investment — as the company grows its EU regulatory base here, statutory audit, financial reporting, and payroll become increasingly important services for Deloitte to provide.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Alexandre Dreyfus</div><div class="ce-title">CEO · Chiliz &amp; Socios.com · Based in Malta · Active on LinkedIn &amp; X (@alex_dreyfus)</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:alexandre.dreyfus@chiliz.com">alexandre.dreyfus@chiliz.com</a>
+            <a class="cl cl-li" href="https://mt.linkedin.com/in/alexandredreyfus" target="_blank">LinkedIn</a>
+            <a class="cl cl-gen" href="https://twitter.com/alex_dreyfus" target="_blank">X @alex_dreyfus</a>
+          </div>
+        </div>
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Beatrice Collet</div><div class="ce-title">Managing Director · Chiliz</div></div>
+            <span class="conf-v">Verified</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-email" href="mailto:beatrice.collet@chiliz.com">beatrice.collet@chiliz.com</a>
+            <a class="cl cl-li" href="https://www.linkedin.com/company/chiliz/people/" target="_blank">LinkedIn People</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @chiliz.com · a***@chiliz.com format confirmed via RocketReach</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BVNK / DeFi -->
+  <div class="card" id="c-defi">
+    <div class="card-trigger" onclick="toggle('c-defi')">
+      <div class="ct-bar" style="background:var(--c-cr)"></div>
+      <div class="ct-main">
+        <div class="ct-name">BitBay / BVNK / DeFi Scale-Ups</div>
+        <div class="ct-size">Crypto exchanges &amp; DeFi · Malta as EU licensing base</div>
+      </div>
+      <div class="ct-right">
+        <div class="stags">
+          <span class="stag s-r">MiCA / VFA</span><span class="stag s-r">AML</span>
+          <span class="stag s-p">Payroll</span><span class="stag s-b">Bookkeeping</span>
+        </div>
+        <span class="chev">▾</span>
+      </div>
+    </div>
+    <div class="card-panel">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(this,'c-defi','rationale')">Why Target</button>
+        <button class="tab-btn" onclick="switchTab(this,'c-defi','contacts')">Contacts</button>
+      </div>
+      <div class="tab-content active" data-tab="rationale">
+        <div class="rat-lbl">Why target</div>
+        <div class="rat-txt">The VFA-to-MiCA transition creates a defined, time-pressured advisory window — entities must reclassify, restructure licences, and update governance documentation. AML obligations intensifying under AMLA. Many have lean finance teams, making bookkeeping and payroll outsourcing attractive. Targeting this cohort collectively via a Deloitte crypto compliance event creates efficient pipeline generation.</div>
+      </div>
+      <div class="tab-content" data-tab="contacts">
+        <div class="contact-entry">
+          <div class="ce-head">
+            <div><div class="ce-name">Malta Compliance / CFO</div><div class="ce-title">BVNK has a Malta entity. Search LinkedIn "BVNK Malta" or "BitBay Malta" + Compliance/Legal/CFO</div></div>
+            <span class="conf-p">Probable</span>
+          </div>
+          <div class="ce-links">
+            <a class="cl cl-li" href="https://www.linkedin.com/company/bvnk/people/" target="_blank">BVNK LinkedIn</a>
+            <a class="cl cl-web" href="https://www.bvnk.com/contact" target="_blank">bvnk.com/contact</a>
+            <a class="cl cl-gen" href="mailto:compliance@bvnk.com">compliance@bvnk.com</a>
+          </div>
+        </div>
+        <div class="contact-note">Domain: @bvnk.com · Best via LinkedIn filtered to Malta + Compliance/Legal/CFO</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /Crypto -->
+
+</div><!-- /segments -->
+
+<!-- STRIP -->
+<div class="strip">
+  <div><div class="i-num">20+</div><div class="i-lbl">Prospects with rationale, services &amp; contacts in one tap</div></div>
+  <div><div class="i-num">100%</div><div class="i-lbl">Have payroll &amp; bookkeeping opportunity — lowest-friction entry</div></div>
+  <div><div class="i-num">8</div><div class="i-lbl">Verified named contacts with LinkedIn &amp; email domains</div></div>
+  <div><div class="i-num">P1</div><div class="i-lbl">iGaming + Fintech — highest pressure &amp; largest headcounts</div></div>
+</div>
+
+<div class="foot">
+  <span>Deloitte Malta — TMT Practice · Client Map &amp; Contact Directory</span>
+  <span>Confidential — April 2025 · Verify contacts before outreach</span>
+</div>
+
+<script>
+function toggle(id) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('open');
+  // close all
+  document.querySelectorAll('.card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+function switchTab(btn, cardId, tab) {
+  const panel = document.getElementById(cardId).querySelector('.card-panel');
+  panel.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  panel.querySelector(`.tab-content[data-tab="${tab}"]`).classList.add('active');
+  event.stopPropagation();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deloitte TMT — 6 Action Points</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #86BC24;
+    --green-dark: #5C8A00;
+    --green-light: #EBF5D6;
+    --black: #1A1A1A;
+    --gray: #6B6B6B;
+    --line: #E0E0E0;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F7F7F5;
+    color: var(--black);
+    min-height: 100vh;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    max-width: 860px;
+    margin: 0 auto 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .logo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+  }
+
+  .logo span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--black);
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--green-dark);
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 32px 28px 28px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s ease forwards;
+    border: 1px solid var(--line);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    transform: translateY(-3px);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--green);
+  }
+
+  .card:nth-child(1) { animation-delay: 0.10s; }
+  .card:nth-child(2) { animation-delay: 0.18s; }
+  .card:nth-child(3) { animation-delay: 0.26s; }
+  .card:nth-child(4) { animation-delay: 0.34s; }
+  .card:nth-child(5) { animation-delay: 0.42s; }
+  .card:nth-child(6) { animation-delay: 0.50s; }
+
+  /* Number badge */
+  .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--green-light);
+    border-radius: 50%;
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--green-dark);
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  /* Tags */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--green-light);
+    color: var(--green-dark);
+    text-transform: uppercase;
+  }
+
+  /* Timeline pill */
+  .timeline {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width: 860px;
+    margin: 48px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #AAAAAA;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span></span>Deloitte &mdash; TMT Practice</div>
+  <h1>6 Action Points to Grow <em>Technology</em> Sector Business</h1>
+  <p class="subtitle">A simple, prioritised playbook for the next six months — anchored to Deloitte&rsquo;s TMT Predictions 2025&ndash;2026 research.</p>
+</header>
+
+<div class="grid">
+
+  <!-- 1 -->
+  <div class="card">
+    <div class="timeline">Months 1–2</div>
+    <div class="num">1</div>
+    <div class="card-title">Map & Target the Right Clients</div>
+    <p class="card-desc">Go through your existing tech sector client list and identify where there is untapped potential — who has AI, cyber, or compliance needs you&rsquo;re not yet serving? Then build a shortlist of 20–30 priority prospects to pursue.</p>
+    <div class="tags">
+      <span class="tag">Foundation</span>
+      <span class="tag">Pipeline</span>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="card">
+    <div class="timeline">Months 1–3</div>
+    <div class="num">2</div>
+    <div class="card-title">Lead with AI Governance & EU AI Act</div>
+    <p class="card-desc">The EU AI Act is the single hottest topic in boardrooms right now. Offer a simple, fixed-price AI readiness diagnostic to tech companies — it gets you in the door, demonstrates expertise, and almost always opens bigger conversations.</p>
+    <div class="tags">
+      <span class="tag">AI Act</span>
+      <span class="tag">Risk Advisory</span>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="card">
+    <div class="timeline">Months 2–4</div>
+    <div class="num">3</div>
+    <div class="card-title">Win DORA & Cyber Compliance Work</div>
+    <p class="card-desc">Technology vendors supplying banks and insurers must comply with DORA. Many are not ready and are under time pressure. Offer a DORA Register of Information review and pair it with a cybersecurity assessment — this is a natural double-sell.</p>
+    <div class="tags">
+      <span class="tag">DORA</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Regulatory</span>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="card">
+    <div class="timeline">Months 3–5</div>
+    <div class="num">4</div>
+    <div class="card-title">Sell SOC 2 / ISAE 3402 to SaaS Companies</div>
+    <p class="card-desc">SaaS companies trying to land enterprise clients are increasingly asked for an independent attestation report. Package a clear, well-priced SOC 2 or ISAE 3402 readiness and attestation offering — it generates recurring annual revenue and builds long-term relationships.</p>
+    <div class="tags">
+      <span class="tag">Audit</span>
+      <span class="tag">SaaS</span>
+      <span class="tag">Recurring Revenue</span>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="card">
+    <div class="timeline">Months 3–5</div>
+    <div class="num">5</div>
+    <div class="card-title">Run Client Workshops Using Deloitte Research</div>
+    <p class="card-desc">Use Deloitte&rsquo;s own TMT Predictions and State of AI in the Enterprise reports as the basis for executive workshops with CTOs, CISOs, and CFOs at tech companies. It positions Deloitte as a thought leader and creates a natural pipeline — clients rarely leave these sessions without a follow-up conversation.</p>
+    <div class="tags">
+      <span class="tag">Business Development</span>
+      <span class="tag">Thought Leadership</span>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="card">
+    <div class="timeline">Months 5–6</div>
+    <div class="num">6</div>
+    <div class="card-title">Host a Deloitte TMT Business Forum</div>
+    <p class="card-desc">In Month 5 or 6, bring together 30–50 senior technology sector leaders for a half-day event anchored around Deloitte&rsquo;s 2026 TMT Predictions. This creates brand visibility, accelerates existing pipeline conversations, and should generate at least 20 qualified new leads in one session.</p>
+    <div class="tags">
+      <span class="tag">Events</span>
+      <span class="tag">Scale</span>
+      <span class="tag">Pipeline</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Deloitte TMT Practice &mdash; Confidential</span>
+  <span>Aligned to Deloitte TMT Predictions 2025&ndash;2026</span>
+</footer>
+
+</body>
+</html>
