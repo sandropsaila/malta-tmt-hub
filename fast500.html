@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast 500 Malta — TMT Strategy Hub</title>
+<meta name="description" content="Deloitte EMEA Technology Fast 500: eligibility criteria, benefits for Maltese companies, benefits for Deloitte Malta and the revenue case for a Malta Fast 15.">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --g:#86BC24; --g-dark:#5C8A00; --bg:#000; --panel:#0F0F0F; --panel2:#161616; --line:#262626;
+  --txt:#fff; --mut:#A8A8A8; --teal:#0D8390; --cyan:#DDF6FA; --ink:#0A2A33; --blue:#1B6EC2;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Open Sans',sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;font-size:14px;-webkit-font-smoothing:antialiased;}
+a{color:var(--g);}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:28px 0 56px;border-bottom:3px solid var(--g);
+  background:
+   radial-gradient(520px 320px at 92% 12%,rgba(134,188,36,.55),transparent 65%),
+   radial-gradient(460px 300px at 78% 40%,rgba(27,110,194,.55),transparent 65%),
+   radial-gradient(300px 200px at 100% 70%,rgba(230,200,40,.30),transparent 70%),#000;}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:48px;gap:12px;flex-wrap:wrap;}
+.brand{font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1;}
+.brand b{color:var(--g);}
+.brand small{display:block;font-family:'Open Sans',sans-serif;font-style:italic;font-weight:300;font-size:11px;letter-spacing:0;margin-top:4px;color:#ddd;}
+.back{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:#fff;border:1px solid #444;padding:7px 12px;border-radius:20px;background:rgba(0,0,0,.4);}
+.back:hover{border-color:var(--g);color:var(--g);}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.04em;margin-bottom:6px;}
+h1{font-size:clamp(34px,7vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.02em;}
+h1 em{font-style:italic;color:var(--g);font-weight:400;}
+.lede{max-width:560px;margin-top:16px;color:#d6d6d6;font-weight:300;font-size:15px;}
+.tagline{display:inline-block;margin-top:22px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#000;background:var(--g);padding:5px 12px;border-radius:2px;}
+
+/* SUBNAV */
+.subnav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+.subnav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.subnav a{flex:none;color:var(--mut);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 12px;border-bottom:3px solid transparent;}
+.subnav a:hover{color:var(--g);border-bottom-color:var(--g);}
+
+/* SECTIONS */
+section{padding:56px 0 8px;}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.kicker::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--g);}
+h2{font-size:clamp(24px,4.5vw,34px);font-weight:800;line-height:1.15;letter-spacing:-.01em;color:#fff;margin-bottom:12px;}
+h2 em{font-style:italic;font-weight:400;color:var(--g);}
+.intro{color:#cfcfcf;font-weight:300;max-width:680px;margin-bottom:24px;}
+h3{font-size:15px;font-weight:700;margin-bottom:6px;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:-32px auto 0;position:relative;z-index:2;}
+.stat{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--g);padding:16px 14px;border-radius:2px;}
+.stat .n{font-size:26px;font-weight:800;color:var(--g);line-height:1.1;}
+.stat .l{font-size:11px;color:var(--mut);margin-top:4px;line-height:1.4;}
+.stat.zero .n{color:#fff;}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}}
+
+/* PANELS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr;}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px 18px;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);}
+.card p{color:#c8c8c8;font-weight:300;font-size:13px;}
+.card .ic{font-size:20px;margin-bottom:8px;}
+.cyan{background:var(--cyan);color:var(--ink);border-radius:8px;padding:20px 22px;}
+.cyan h3{color:var(--ink);}
+.cyan p,.cyan li{color:#1c4650;font-weight:400;font-size:13px;}
+.cyan ul{margin:8px 0 0 18px;}
+.teal{background:var(--teal);border-radius:8px;padding:20px 22px;}
+.teal p,.teal li{color:#fff;font-size:13px;}
+.teal ul{margin:8px 0 0 18px;}
+.stack>*+*{margin-top:14px;}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px;}
+.tbl th{text-align:left;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g);padding:10px 12px;border-bottom:2px solid var(--g);}
+.tbl td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top;color:#d4d4d4;font-weight:300;}
+.tbl td:first-child{font-weight:700;color:#fff;white-space:nowrap;}
+.tbl .src{font-size:11px;color:var(--mut);}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel);}
+@media(max-width:600px){.tbl td:first-child{white-space:normal;}}
+
+/* CHART */
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px;}
+.bar{display:grid;grid-template-columns:96px 1fr 30px;gap:10px;align-items:center;font-size:12px;margin:5px 0;}
+.bar .track{height:14px;background:#1d1d1d;border-radius:2px;overflow:hidden;}
+.bar .fill{height:100%;background:var(--g);}
+.bar .v{font-weight:700;text-align:right;}
+.bar.small .fill{background:#fff;}
+.bar.malta{margin-top:12px;padding-top:12px;border-top:1px dashed #444;}
+.bar.malta .name{color:var(--g);font-weight:800;}
+.bar.malta .track{background:repeating-linear-gradient(90deg,#1d1d1d 0 6px,#2a2a2a 6px 12px);}
+.note{font-size:11px;color:var(--mut);margin-top:10px;font-weight:300;}
+
+/* FUNNEL + CALC */
+.funnel{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.fstep{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-radius:2px;font-size:13px;font-weight:600;background:linear-gradient(90deg,rgba(134,188,36,.9),rgba(13,131,144,.9));color:#000;}
+.fstep span{font-weight:800;}
+.fstep.real{outline:2px solid #fff;}
+.calc{background:var(--panel);border:1px solid var(--g);border-radius:6px;padding:20px 18px;margin-top:20px;}
+.calc label{display:flex;justify-content:space-between;font-size:12px;margin-top:14px;color:#ddd;}
+.calc label b{color:var(--g);}
+.calc input[type=range]{width:100%;accent-color:#86BC24;}
+.out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px;}
+.out>div{background:#000;border:1px solid var(--line);padding:12px;border-radius:3px;min-width:0;}
+.out .n{font-size:clamp(15px,4.6vw,20px);font-weight:800;color:var(--g);overflow-wrap:anywhere;}
+.out .l{font-size:10.5px;color:var(--mut);}
+.badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#000;padding:3px 8px;border-radius:2px;margin-bottom:10px;}
+.badge.g{background:var(--g);}
+
+/* FAST 15 */
+.f15{background:linear-gradient(135deg,#0b0b0b 0%,#10230a 100%);border:2px solid var(--g);border-radius:8px;padding:26px 22px;}
+.f15 .big{font-size:clamp(40px,10vw,72px);font-weight:300;line-height:1;letter-spacing:-.03em;}
+.f15 .big em{color:var(--g);font-style:italic;font-weight:400;}
+.steps{counter-reset:s;list-style:none;margin-top:16px;}
+.steps li{counter-increment:s;display:flex;gap:12px;padding:10px 0;border-top:1px solid #243018;font-size:13px;color:#d6d6d6;font-weight:300;}
+.steps li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--g);color:#000;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.steps b{color:#fff;font-weight:700;}
+.flag{border-left:3px solid #E8C22C;background:#1a1706;padding:12px 14px;font-size:12.5px;color:#e9deb0;margin-top:16px;border-radius:0 3px 3px 0;}
+.flag b{color:#F5D547;}
+
+/* SOURCES */
+.src-list{list-style:none;font-size:12px;}
+.src-list li{padding:8px 0;border-top:1px solid var(--line);color:#bbb;font-weight:300;}
+.src-list a{word-break:break-all;}
+footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-size:11px;color:var(--mut);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">Deloitte<b>.</b><small>Together makes progress</small></div>
+      <a class="back" href="index.html">&larr; TMT Strategy Hub</a>
+    </div>
+    <div class="eyebrow">EMEA Technology Fast 500</div>
+    <h1><em>Ambition</em> at scale,<br>from Malta</h1>
+    <p class="lede">What the Fast 500 asks of a company, what Maltese tech businesses gain by being ranked, and what a Malta Fast 15 could do for Deloitte Malta&rsquo;s growth.</p>
+    <span class="tagline">TMT Practice &middot; FY27</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="n">500</div><div class="l">fastest-growing tech companies ranked in the 2025 EMEA edition</div></div>
+    <div class="stat"><div class="n">1,132%</div><div class="l">average growth rate of the 2025 ranked companies</div></div>
+    <div class="stat"><div class="n">152</div><div class="l">ranked companies grew by more than 1,000%</div></div>
+    <div class="stat zero"><div class="n">0</div><div class="l">Maltese entries on the report&rsquo;s country map</div></div>
+  </div>
+</div>
+
+<nav class="subnav"><div class="wrap">
+  <a href="#about">The programme</a>
+  <a href="#eligibility">Eligibility</a>
+  <a href="#malta">Malta&rsquo;s position</a>
+  <a href="#companies">For companies</a>
+  <a href="#deloitte">For Deloitte Malta</a>
+  <a href="#revenue">Revenue</a>
+  <a href="#fast15">Fast 15</a>
+  <a href="#contacts">Contacts</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="about">
+  <div class="kicker">The programme</div>
+  <h2>How the Fast 500 is <em>built</em></h2>
+  <p class="intro">The ranking is compiled from applications to Deloitte&rsquo;s national and regional Technology Fast 50 programmes across EMEA. Winners are determined by percentage revenue growth, nothing else.</p>
+  <div class="grid3">
+    <div class="card"><div class="ic">1</div><h3>Regional Fast 50 winners</h3><p>Submitted automatically for Fast 500 consideration. This is how most of the 500 arrive.</p></div>
+    <div class="card"><div class="ic">2</div><h3>Direct nominations</h3><p>Accepted where no regional Fast 50 exists. This is the route open to Malta today.</p></div>
+    <div class="card"><div class="ic">3</div><h3>Deloitte research</h3><p>Deloitte also identifies public companies through its own research.</p></div>
+  </div>
+  <p class="note">Sourcing routes as stated on Deloitte&rsquo;s EMEA Fast 500 page (read via a search excerpt; the full page did not load for me). Confirm the direct-nomination mechanics with the EMEA team before relying on it.</p>
+</section>
+
+<section id="eligibility">
+  <div class="kicker">Eligibility</div>
+  <h2>What a company <em>must</em> show</h2>
+  <p class="intro">Criteria are consistent in shape across Deloitte&rsquo;s programmes, but thresholds differ by programme. Malta has no programme of its own, so its exact thresholds would be set when the route is agreed.</p>
+  <div class="scroll">
+  <table class="tbl">
+    <tr><th>Criterion</th><th>Requirement</th><th>Basis</th></tr>
+    <tr><td>Track record</td><td>At least four years in business with accounts covering four full 12-month periods.</td><td class="src">UK; Central Europe (founded on or before 31 Dec 2021)</td></tr>
+    <tr><td>Revenue floor</td><td>Base-year operating revenue of at least &euro;50,000. Current-year floor varies: &euro;100,000 (Central Europe), &euro;800,000 (EMEA page text), about &euro;1m (Netherlands, Türkiye).</td><td class="src">Programme pages; Netherlands figure from a secondary summary</td></tr>
+    <tr><td>Technology test</td><td>Meet at least one: own proprietary IP or technology behind a significant share of revenue; manufacture a technology product; spend a significant share of revenue on R&amp;D; be technology-intensive or use unique technology to solve problems.</td><td class="src">UK; Central Europe</td></tr>
+    <tr><td>Own technology</td><td>Using other companies&rsquo; technology in a unique way does not qualify.</td><td class="src">EMEA page; Canada; UK</td></tr>
+    <tr><td>Exclusions</td><td>Consulting firms, professional services firms and resellers that do not rely on proprietary technology.</td><td class="src">UK; Canada</td></tr>
+    <tr><td>Independence</td><td>Headquartered in the programme country. Some programmes exclude subsidiaries or require strategic independence.</td><td class="src">Belgium; Türkiye; APAC</td></tr>
+    <tr><td>Sector</td><td>Communications, Digital Commerce, EdTech, Environmental Tech, FinTech, Hardware, Healthcare &amp; Life Sciences, Media &amp; Entertainment, Software.</td><td class="src">Middle East &amp; Cyprus FAQ</td></tr>
+    <tr><td>Growth measure</td><td>Percentage revenue growth over a defined period, typically three to four years. Public or private companies can apply.</td><td class="src">UK; Middle East; Central Europe</td></tr>
+    <tr><td>Cost &amp; evidence</td><td>No application fee. Private companies provide financial statements or revenue proof. Only the growth percentage is published, not revenue.</td><td class="src">Middle East &amp; Cyprus FAQ</td></tr>
+  </table>
+  </div>
+  <div class="cyan" style="margin-top:16px;">
+    <h3>Reading this for Maltese companies</h3>
+    <ul>
+      <li>Software, FinTech and iGaming-adjacent technology companies fit the sector list. Pure consultancies and resellers do not.</li>
+      <li>Deloitte states it assumes company-supplied information is accurate and does not independently verify it, so a clean audited-accounts trail protects both sides.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="malta">
+  <div class="kicker">Malta&rsquo;s position</div>
+  <h2>A gap on the <em>map</em></h2>
+  <p class="intro">The 2025 report shows entries from 25 countries. Malta is not one of them, and the report&rsquo;s contact list has no Malta Fast 50 lead.</p>
+  <div class="chart">
+    <div id="bars"></div>
+    <div class="bar malta"><div class="name">Malta</div><div class="track"></div><div class="v">0</div></div>
+    <p class="note">Counts as printed on the report&rsquo;s country map. They sum to slightly more than 500, so treat them as the report&rsquo;s own headcount by country, not an audited split.</p>
+  </div>
+  <div class="grid2" style="margin-top:14px;">
+    <div class="card"><h3>Small markets do get in</h3><p>Cyprus has 5 entries, Croatia 13 and Slovakia 15. The report highlights Central and Eastern Europe, and Portugal, as growing contributors.</p></div>
+    <div class="card"><h3>What the data check showed</h3><p>I compared the 556 Tech.mt directory members against all 500 Fast 500 names, by website domain and by company name. No member matched.</p></div>
+  </div>
+  <p class="note">The match was on public names and websites only. A Maltese-linked company could still sit under another country&rsquo;s entry.</p>
+</section>
+
+<section id="companies">
+  <div class="kicker">For Maltese companies</div>
+  <h2>Why a Maltese company <em>applies</em></h2>
+  <div class="grid2">
+    <div class="card"><div class="ic">🌍</div><h3>International visibility</h3><p>A place in a published EMEA ranking puts a Maltese company next to the region&rsquo;s fastest growers, in front of investors, customers and partners outside Malta.</p></div>
+    <div class="card"><div class="ic">⚖️</div><h3>An objective benchmark</h3><p>Ranking rests on revenue growth alone. Deloitte Ireland describes it as an objective measure of performance, which gives third-party weight to a growth claim.</p></div>
+    <div class="card"><div class="ic">🔒</div><h3>Revenue stays private</h3><p>Programmes disclose the growth percentage, not current or base-year revenue. Revenue proof goes to Deloitte only.</p></div>
+    <div class="card"><div class="ic">🤝</div><h3>Network access</h3><p>Fast 50 programmes pitch access to Deloitte&rsquo;s network of founders, funders and technology specialists.</p></div>
+    <div class="card"><div class="ic">🧾</div><h3>Free to enter</h3><p>No application fee in the programmes reviewed. The cost is the effort of assembling accounts.</p></div>
+    <div class="card"><div class="ic">🏁</div><h3>First-mover position</h3><p>With no Maltese entries on the map, the first ranked companies define how Malta is seen in this ranking.</p></div>
+  </div>
+</section>
+
+<section id="deloitte">
+  <div class="kicker">For Deloitte Malta</div>
+  <h2>Why Deloitte Malta <em>organises</em> it</h2>
+  <div class="stack">
+    <div class="teal">
+      <h3>The strategic case</h3>
+      <ul>
+        <li><b>Ownership of a national platform.</b> Every other programme has a named Deloitte lead. Malta has none, so a Malta lead owns a vacant seat in the EMEA network.</li>
+        <li><b>A reason to call the right people.</b> Applications create contact with founders and CFOs who would not take a cold approach.</li>
+        <li><b>Thought leadership with data.</b> A published Malta ranking gives press, social content and proprietary market data, and complements the Technology Industry Survey in the FY27 plan.</li>
+        <li><b>Institutional goodwill.</b> It gives a concrete topic for the planned meetings with the MFSA, MGA, MDIA and the Chambers.</li>
+      </ul>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>Services high-growth clients need</h3><p>Fast growers face enterprise due diligence: SOC 2 and ISAE 3402 attestation, AI Act readiness, DORA and NIS2 compliance, audit, tax and funding readiness. These match the FY27 action points.</p></div>
+      <div class="card"><h3>Recurring, not one-off</h3><p>Attestation and audit relationships renew annually, so a first engagement with a ranked company can compound.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="revenue">
+  <div class="kicker">Revenue growth</div>
+  <h2>From ranking to <em>revenue</em></h2>
+  <p class="intro">The ranking works as a lead-generation funnel. The two top figures come from the Tech.mt directory; everything below them is yours to set.</p>
+  <div class="funnel">
+    <div class="fstep real">Tech.mt directory members<span>556</span></div>
+    <div class="fstep real">Report 6+ years in operation<span>248</span></div>
+    <div class="fstep">Applicants<span id="fa">&mdash;</span></div>
+    <div class="fstep">Qualified meetings<span id="fm">&mdash;</span></div>
+    <div class="fstep">Engagements won<span id="fe">&mdash;</span></div>
+  </div>
+  <p class="note">556 is the member count; 248 is the sum of the &ldquo;6-10 Years&rdquo; (97) and &ldquo;11+&rdquo; (151) buckets, which clears a four-year track record. The &ldquo;1-5 Years&rdquo; group (199) is mixed and 19 members left it blank. Membership is a candidate pool, not a measure of eligibility.</p>
+  <div class="calc">
+    <span class="badge">Illustrative</span>
+    <h3>Pipeline model: placeholder assumptions, not Deloitte data</h3>
+    <label>Applicants <b id="v1">30</b></label><input type="range" id="i1" min="5" max="100" value="30">
+    <label>Applicants who become qualified meetings <b id="v2">40%</b></label><input type="range" id="i2" min="10" max="80" value="40">
+    <label>Meetings that become engagements <b id="v3">25%</b></label><input type="range" id="i3" min="5" max="60" value="25">
+    <label>Average first-year fee (&euro;) <b id="v4">25,000</b></label><input type="range" id="i4" min="5000" max="100000" step="1000" value="25000">
+    <div class="out">
+      <div><div class="n" id="o1">12</div><div class="l">qualified meetings</div></div>
+      <div><div class="n" id="o2">3</div><div class="l">engagements</div></div>
+      <div><div class="n" id="o3">&euro;75,000</div><div class="l">first-year fees, before event and programme cost</div></div>
+    </div>
+    <p class="note">Replace the sliders with practice conversion and fee data before quoting any figure upward.</p>
+  </div>
+</section>
+
+<section id="fast15">
+  <div class="kicker">The proposal</div>
+  <h2>Replacing the forum with <em>Fast 15</em></h2>
+  <div class="f15">
+    <span class="badge g">Proposed &middot; Months 5&ndash;6</span>
+    <div class="big">Malta <em>Fast 15</em></div>
+    <p style="margin-top:12px;color:#d6d6d6;font-weight:300;max-width:600px;">A Deloitte Malta ranking of the 15 fastest-growing technology companies in Malta by percentage revenue growth, announced at an awards evening that takes the slot of the planned business forum. Ranked companies would be put forward for the EMEA Fast 500.</p>
+    <ol class="steps">
+      <li><span><b>Agree the route.</b> Confirm with the EMEA Fast 500 team that Malta winners can be nominated directly.</span></li>
+      <li><span><b>Set the criteria.</b> Adopt the eligibility table above, with thresholds fixed for Malta.</span></li>
+      <li><span><b>Open applications.</b> Target the Tech.mt candidate pool and existing Deloitte tech clients.</span></li>
+      <li><span><b>Verify and rank.</b> Check revenue proof, then rank on growth alone.</span></li>
+      <li><span><b>Host the evening.</b> Announce the Fast 15, then nominate winners to the Fast 500.</span></li>
+    </ol>
+    <div class="flag"><b>Assumption to confirm.</b> I read &ldquo;Fast 15&rdquo; as a Malta-scale Fast 50 with 15 places. The size and the nomination route are not confirmed by Deloitte, and the Malta tie-in is a proposal.</div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="kicker">Contacts</div>
+  <h2>Who to <em>ask</em></h2>
+  <div class="scroll">
+  <table class="tbl">
+    <tr><th>Name</th><th>Role in the report</th></tr>
+    <tr><td>Jiri Sauer</td><td>EMEA Fast 500 Lead &amp; Central Europe Fast 50 Lead</td></tr>
+    <tr><td>Tiffany Wint</td><td>EMEA Fast 500 Programme Lead</td></tr>
+    <tr><td>Izabela Swietlicka</td><td>EMEA Fast 500 Growth Lead</td></tr>
+    <tr><td>Tom Miles</td><td>EMEA Fast 500 Verifications Lead</td></tr>
+    <tr><td>Kyriacos Charalambides</td><td>Middle East &amp; Cyprus Fast 50 Lead</td></tr>
+    <tr><td>Angelo Sorrentino &middot; Petar Angelov</td><td>Scale-Up Ecosystem Leads</td></tr>
+  </table>
+  </div>
+  <p class="note">Start with Jiri Sauer or Tiffany Wint on the nomination route. Kyriacos Charalambides is the nearest regional lead. Email addresses are hyperlinks in the report PDF and were not extracted.</p>
+</section>
+
+<section id="sources">
+  <div class="kicker">Sources</div>
+  <ul class="src-list">
+    <li>Deloitte, <i>2025 EMEA Technology Fast 500: Ambition at scale</i> (May 2026), project file ambitionatscalev2.pdf</li>
+    <li>Tech.mt members directory export, project file Tech_mt_members.xlsx (556 members)</li>
+    <li><a href="https://www2.deloitte.com/me/en/pages/technology-media-and-telecommunications/articles/emea-apply-now-technology-fast-500.html">EMEA Fast 500 eligibility</a></li>
+    <li><a href="https://www.deloitte.com/middle-east/en/services/deloitte-private/perspectives/fast50-faq.html">Middle East &amp; Cyprus Fast 50 FAQ</a></li>
+    <li><a href="https://www.deloitte.com/middle-east/en/about/press-room/deloitte-launches-technology-fast-50-program-uae-sa-qa-bh-cy.html">Middle East &amp; Cyprus launch release</a></li>
+    <li><a href="https://www.deloitte.com/ce/en/issues/work/technology-fast-50.html">Central Europe Fast 50</a></li>
+    <li><a href="https://www.deloitte.co.uk/fast50/about/do-you-qualify/">UK Fast 50 eligibility</a></li>
+    <li><a href="https://www.deloitte.com/be/en/services/deloitte-private/services/technology-fast50.html">Belgium Fast 50 criteria</a></li>
+    <li><a href="https://www.deloitte.com/tr/en/Industries/tmt/perspectives/technology-fast-50.html">Türkiye Fast 50</a></li>
+    <li><a href="https://www.deloitte.com/ie/en/about/press-room/irelands-technology-fast50-2025-applications-open.html">Ireland Fast 50 2025 release</a></li>
+    <li><a href="https://starthubs.co/en/opp/deloitte-technology-fast-50">Netherlands Fast 50 (secondary summary)</a></li>
+  </ul>
+</section>
+
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>Deloitte Malta &middot; TMT Practice &middot; Internal strategy page</span>
+    <span>Styled after the 2025 EMEA Technology Fast 500 report</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var data=[["United Kingdom",96],["Sweden",49],["Norway",49],["Finland",40],["Netherlands",37],["Belgium",32],["Spain",29],["Poland",24],["Ireland",22],["Türkiye",21],["Czech Republic",19],["Portugal",18],["Slovakia",15],["Croatia",13],["Saudi Arabia",9],["Romania",8],["U.A.E.",7],["Cyprus",5],["Hungary",4],["Estonia",2],["Switzerland",1],["Italy",1],["Latvia",1],["Bahrain",1],["Oman",1]];
+  var box=document.getElementById('bars'),max=96,html='';
+  data.forEach(function(d){
+    html+='<div class="bar'+(d[1]<=15?' small':'')+'"><div>'+d[0]+'</div><div class="track"><div class="fill" style="width:'+Math.max(d[1]/max*100,1.5)+'%"></div></div><div class="v">'+d[1]+'</div></div>';
+  });
+  box.innerHTML=html;
+
+  function fmt(n){return n.toLocaleString('en-GB');}
+  function calc(){
+    var a=+document.getElementById('i1').value,m=+document.getElementById('i2').value,w=+document.getElementById('i3').value,f=+document.getElementById('i4').value;
+    var meet=Math.round(a*m/100),eng=Math.round(meet*w/100),rev=Math.round(a*m/100*w/100*f);
+    document.getElementById('v1').textContent=a;
+    document.getElementById('v2').textContent=m+'%';
+    document.getElementById('v3').textContent=w+'%';
+    document.getElementById('v4').textContent=fmt(f);
+    document.getElementById('o1').textContent=meet;
+    document.getElementById('o2').textContent=eng;
+    document.getElementById('o3').textContent='€'+fmt(rev);
+    document.getElementById('fa').textContent=a;
+    document.getElementById('fm').textContent=meet;
+    document.getElementById('fe').textContent=eng;
+  }
+  ['i1','i2','i3','i4'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+  calc();
+})();
+</script>
+</body>
+</html>
