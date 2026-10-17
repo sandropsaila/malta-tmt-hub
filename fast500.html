@@ -155,6 +155,17 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
 .screen div{background:#000;border:1px solid var(--line);padding:10px 12px;border-radius:3px;}
 .screen b{display:block;font-size:20px;color:var(--g);}
 .screen span{font-size:10.5px;color:var(--mut);}
+
+.defs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:6px 0 18px;}
+@media(max-width:700px){.defs{grid-template-columns:1fr;}}
+.def{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px;min-width:0;}
+.def h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g);font-weight:800;margin-bottom:6px;}
+.def p{font-size:12.5px;color:#d0d0d0;font-weight:300;line-height:1.6;}
+.def p+p{margin-top:6px;}
+.def .eg{color:#fff;font-weight:400;}
+.def.wide{grid-column:1/-1;border-color:var(--g);}
+.def a{color:#6AA6FF;}
+.analogy{background:var(--teal);border-radius:6px;padding:16px 18px;margin:4px 0 14px;color:#fff;font-size:13px;line-height:1.6;}
 </style>
 </head>
 <body>
@@ -238,6 +249,15 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
   <div class="kicker">What 300% means</div>
   <h2>300% growth, in <em>revenue</em></h2>
   <p class="intro">The 2025 ranking is cut at about 288% growth (rank 500). Rank 492 sits at 301.89%, so 300% is the practical entry bar for the EMEA Fast 500. Growth of 300% means revenue ends at <b>four times</b> the base year: base plus 300% of base.</p>
+
+  <div class="analogy"><b>Think of it as a door-frame height chart.</b> Each year a company marks its revenue on the frame, the way a child&rsquo;s height is marked. Deloitte compares the first mark with the last mark. A child who goes from 50&nbsp;cm to 2&nbsp;m has grown 300%: four times taller. Below, a bakery that sells &euro;250,000 of bread in its first measured year is used as the example.</div>
+  <div class="defs">
+    <div class="def"><h4>Base-year revenue</h4><p>The first mark on the door frame: revenue in the starting year of the measurement window. Everything else is compared with this number.</p><p class="eg">Bakery: &euro;250,000 in year one.</p></div>
+    <div class="def"><h4>At +300% (&times;4)</h4><p>Where the last mark must be to grow 300%. You keep the starting amount and add three more of the same, so the end figure is four times the start.</p><p class="eg">Bakery: &euro;250,000 &times; 4 = &euro;1,000,000 in the final year.</p></div>
+    <div class="def"><h4>Revenue added</h4><p>The gap between the two marks: how much new yearly revenue the company had to win. This is the 300% part on its own.</p><p class="eg">Bakery: &euro;1,000,000 &minus; &euro;250,000 = &euro;750,000 of new sales.</p></div>
+    <div class="def"><h4>At report median, +668% (&times;7.7)</h4><p>What a typical Fast 500 winner actually achieved. Line up all 500 companies from slowest to fastest: the one in the middle grew 668%. Reaching 300% gets you in the door, while the median shows where the middle of the 2025 class sits.</p><p class="eg">Bakery: &euro;250,000 &times; 7.68 &asymp; &euro;1.92m.</p></div>
+    <div class="def wide"><h4>Clears &euro;800k floor? Where the &euro;800,000 comes from</h4><p>Think of the height sign at a fairground ride: however fast you have grown, you must be at least this tall to ride. The Fast 500 has a minimum size so that a tiny company going from &euro;10,000 to &euro;40,000 cannot win on percentages alone.</p><p>The EMEA Fast 500 criteria set two minimums: at least &euro;50,000 of revenue in the base year, and at least &euro;800,000 in the current (final) year. The &euro;800,000 is the second one. The column checks whether the final-year figure reaches it.</p><p class="eg">Bakery: &euro;1,000,000 at the end clears &euro;800,000, so yes. A shop starting at &euro;100,000 reaches only &euro;400,000 at +300%, so no, even though it grew just as fast.</p><p class="note" style="margin-top:8px;">Source: EMEA Fast 500 criteria as reported by <a href="https://150sec.com/?p=7929">150sec (Dec 2017)</a> and on Deloitte&rsquo;s EMEA &ldquo;apply now&rdquo; page, which now redirects. This is an older figure. National Fast 50 programmes set their own floors (for example &euro;100,000 in Central Europe), so confirm the current threshold for a Malta route with the EMEA team.</p></div>
+  </div>
   <div class="scroll">
   <table class="tbl" id="t300">
     <tr class="th"><th>Base-year revenue</th><th>At +300% (&times;4)</th><th>Revenue added</th><th>At report median, +668% (&times;7.7)</th><th>Clears &euro;800k floor?</th></tr>
@@ -390,6 +410,7 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
     <li>Deloitte, <i>2025 EMEA Technology Fast 500: Ambition at scale</i> (May 2026), project file ambitionatscalev2.pdf</li>
     <li>Tech.mt members directory export, project file Tech_mt_members.xlsx (556 members)</li>
     <li><a href="https://www2.deloitte.com/me/en/pages/technology-media-and-telecommunications/articles/emea-apply-now-technology-fast-500.html">EMEA Fast 500 eligibility</a></li>
+    <li><a href="https://150sec.com/?p=7929">150sec: EMEA Fast 500 criteria, &euro;50k base and &euro;800k current-year revenue (Dec 2017)</a></li>
     <li><a href="https://www.deloitte.com/middle-east/en/services/deloitte-private/perspectives/fast50-faq.html">Middle East &amp; Cyprus Fast 50 FAQ</a></li>
     <li><a href="https://www.deloitte.com/middle-east/en/about/press-room/deloitte-launches-technology-fast-50-program-uae-sa-qa-bh-cy.html">Middle East &amp; Cyprus launch release</a></li>
     <li><a href="https://www.deloitte.com/ce/en/issues/work/technology-fast-50.html">Central Europe Fast 50</a></li>
