@@ -470,6 +470,20 @@ h1{font-weight:300 !important;letter-spacing:-.02em;}
 h1 em{font-style:italic !important;font-weight:400;color:#86BC24 !important;}
 .strip{background:#0F0F0F !important;border:1px solid #262626;border-top:3px solid #86BC24;}
 .card:hover{box-shadow:0 4px 24px rgba(134,188,36,.12) !important;}
+
+/* Mobile: stack client row so name and tags get full width */
+@media (max-width:600px){
+  .card-trigger{flex-wrap:wrap;row-gap:8px;padding:12px 14px;}
+  .ct-bar{height:auto;align-self:stretch;}
+  .ct-main{flex:1 1 0;}
+  .ct-right{order:3;flex:1 0 100%;flex-direction:row;align-items:center;justify-content:space-between;padding-left:13px;}
+  .stags{justify-content:flex-start;}
+  .seg-header{padding:14px;gap:10px;align-items:flex-start;}
+  .seg-left{min-width:0;}
+  .tab-content{padding:12px 14px;}
+  .stat{padding:10px;}
+  .stat-n{font-size:16px;}
+}
 </style>
 
 <!-- HEADER -->
