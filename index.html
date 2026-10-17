@@ -16,12 +16,22 @@
 <meta name="twitter:title" content="TMT Strategy Hub">
 <meta name="twitter:description" content="FY27 Action Plan · Client Map · Contact Directory.">
 <meta name="twitter:image" content="https://malta-tmt-hub.vercel.app/og-image.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--g:#86BC24;}
-body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100vh;}
-#lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;}
+body{font-family:'Open Sans',sans-serif;background:#000;color:#fff;min-height:100vh;}
+#lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px;background:radial-gradient(420px 300px at 95% 4%,rgba(134,188,36,.45),transparent 65%),radial-gradient(380px 280px at 80% 36%,rgba(27,110,194,.40),transparent 65%),radial-gradient(260px 200px at 100% 62%,rgba(230,200,40,.22),transparent 70%),#000;}
+.lbrand{text-align:center;margin-bottom:34px;}
+.wm{font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1;color:#fff;}
+.wm b{color:#86BC24;}
+.lbrand small{display:block;font-style:italic;font-weight:300;font-size:12px;color:#ddd;margin-top:6px;}
+.lbrand .ev{display:inline-block;margin-top:16px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#000;background:#86BC24;padding:4px 10px;border-radius:2px;}
+.fhero{position:relative;overflow:hidden;padding:14px 18px 12px;border-bottom:3px solid #86BC24;display:flex;justify-content:space-between;align-items:center;gap:10px;background:radial-gradient(280px 130px at 96% 0%,rgba(134,188,36,.55),transparent 70%),radial-gradient(260px 130px at 66% 110%,rgba(27,110,194,.45),transparent 70%),#000;}
+.fhero .wm{font-size:22px;}
+.fhero small{display:block;font-style:italic;font-weight:300;font-size:10px;color:#ddd;margin-top:3px;letter-spacing:0;}
+.fhero .tg{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-align:right;line-height:1.4;}
+.fhero .tg span{display:block;color:#86BC24;}
 .dots{display:flex;gap:14px;margin-bottom:32px;}
 .dot{width:14px;height:14px;border-radius:50%;border:2px solid #333;background:transparent;transition:all .15s;}
 .dot.on{background:var(--g);border-color:var(--g);transform:scale(1.1);}
@@ -38,9 +48,10 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 .kempty{background:transparent;border:none;cursor:default;}
 .kempty:active{background:transparent;transform:none;}
 #app{display:none;}
-#app.on{display:block;background:#F4F4F1;min-height:100vh;}
+#app.on{display:block;background:#000;min-height:100vh;}
 .page{display:none;padding-bottom:80px;}
 .page.on{display:block;}
+#p1,#p2{padding:24px 16px 80px;}
 .bnav{position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0E0E0E;display:flex;border-top:3px solid var(--g);}
 .btab{flex:1;padding:10px 4px 14px;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;border-top:3px solid transparent;margin-top:-3px;-webkit-tap-highlight-color:transparent;}
 .btab.on{background:#111;border-top-color:var(--g);}
@@ -52,6 +63,7 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 </head>
 <body>
 <div id="lock">
+  <div class="lbrand"><div class="wm">Deloitte<b>.</b></div><small>Together makes progress</small><span class="ev">EMEA Technology Fast 500</span></div>
   <div class="dots">
     <div class="dot" id="d0"></div><div class="dot" id="d1"></div>
     <div class="dot" id="d2"></div><div class="dot" id="d3"></div>
@@ -73,6 +85,7 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
   </div>
 </div>
 <div id="app">
+  <header class="fhero"><div><div class="wm">Deloitte<b>.</b></div><small>Together makes progress</small></div><div class="tg">EMEA Technology Fast 500<span>Malta TMT Strategy Hub</span></div></header>
   <div class="page on" id="p0"></div>
   <div class="page" id="p1"></div>
   <div class="page" id="p2"></div>
@@ -84,34 +97,34 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 </div>
 <template id="t0"><div style="max-width:700px;margin:0 auto;padding:28px 16px 80px;">
   <div style="margin-bottom:24px;opacity:0;animation:fadeup .4s ease forwards;">
-    <div style="display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#5C8A00;margin-bottom:10px;">
+    <div style="display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#86BC24;margin-bottom:10px;">
       <span style="width:6px;height:6px;background:#86BC24;border-radius:50%;display:inline-block;"></span>
       TMT Practice
     </div>
-    <div style="font-family:sans-serif;font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.1;color:#111;margin-bottom:6px;">FY27 Action Plan:<br><span style="color:#5C8A00;">Technology Sector</span></div>
-    <p style="font-size:12px;color:#999;font-weight:300;line-height:1.6;">Tap any action to expand. Tap Digital Campaigns to see all 4 streams.</p>
+    <div style="font-family:'Open Sans',sans-serif;font-size:clamp(26px,6vw,38px);font-weight:300;letter-spacing:-.02em;line-height:1.1;color:#fff;margin-bottom:6px;">FY27 Action Plan:<br><span style="color:#86BC24;font-style:italic;font-weight:400;">Technology Sector</span></div>
+    <p style="font-size:12px;color:#9A9A9A;font-weight:300;line-height:1.6;">Tap any action to expand. Tap Digital Campaigns to see all 4 streams.</p>
   </div>
 
   <div style="opacity:0;animation:fadeup .45s 0.08s ease forwards;">
-  <div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
+  <div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
   <div style="height:3px;background:#86BC24;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#F0F8DC;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:15px;font-weight:800;color:#5C8A00;">1</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#1C2A0B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:800;color:#86BC24;">1</div>
       <div style="flex:1;min-width:0;">
         <div onclick="showPage(1)" onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:13px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Map &amp; Target the Right Clients</span>
-            <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:#F0F8DC;color:#5C8A00;letter-spacing:.06em;text-transform:uppercase;margin-left:4px;">Open Map →</span>
+            <span style="font-size:13px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Map &amp; Target the Right Clients</span>
+            <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:#1C2A0B;color:#86BC24;letter-spacing:.06em;text-transform:uppercase;margin-left:4px;">Open Map →</span>
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 1–2</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 1–2</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Go through your existing tech client list and identify where there is untapped potential — who has AI, NIS2, or compliance needs you're not yet serving? Build a shortlist of 20–30 priority prospects to pursue.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Foundation</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Pipeline</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Go through your existing tech client list and identify where there is untapped potential — who has AI, NIS2, or compliance needs you're not yet serving? Build a shortlist of 20–30 priority prospects to pursue.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Foundation</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Pipeline</span></div>
         </div>
       </div>
     </div>
@@ -119,115 +132,115 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 </div>
   </div>
 
-  <div style="background:#fff;border:2px solid #86BC24;border-radius:12px;overflow:hidden;margin-bottom:12px;opacity:0;animation:fadeup .45s 0.16s ease forwards;">
-  <div style="height:4px;background:linear-gradient(90deg,#86BC24,#5C8A00);"></div>
+  <div style="background:#0F0F0F;border:2px solid #86BC24;border-radius:12px;overflow:hidden;margin-bottom:12px;opacity:0;animation:fadeup .45s 0.16s ease forwards;">
+  <div style="height:4px;background:linear-gradient(90deg,#86BC24,#0D8390);"></div>
   <div style="padding:14px 16px 12px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:34px;height:34px;min-width:34px;background:#86BC24;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:15px;font-weight:800;color:#fff;">2</div>
+      <div style="width:34px;height:34px;min-width:34px;background:#86BC24;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:800;color:#000;">2</div>
       <div style="flex:1;min-width:0;">
         <div onclick="toggleGroup(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;">
           <div style="flex:1;">
-            <div style="font-size:13.5px;font-weight:800;color:#111;font-family:sans-serif;line-height:1.3;">Digital Marketing Campaigns</div>
-            <div style="font-size:10.5px;font-weight:300;color:#888;margin-top:3px;">4 campaign streams — AI Act · DORA/NIS2/PSD3 · Payroll &amp; Bookkeeping · SOC 2</div>
+            <div style="font-size:13.5px;font-weight:800;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Digital Marketing Campaigns</div>
+            <div style="font-size:10.5px;font-weight:300;color:#9A9A9A;margin-top:3px;">4 campaign streams — AI Act · DORA/NIS2/PSD3 · Payroll &amp; Bookkeeping · SOC 2</div>
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 1–5</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 1–5</span>
             <span style="font-size:13px;color:#86BC24;transition:transform .25s;display:inline-block;" class="gchev">&#9662;</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="group-body" style="display:none;background:#F6FAF0;border-top:1px solid #D4EDA8;padding:12px 12px 6px;">
+  <div class="group-body" style="display:none;background:#10180A;border-top:1px solid #2E4516;padding:12px 12px 6px;">
     <div style="font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#86BC24;margin-bottom:10px;padding-left:4px;">▸ Tap a stream to expand</div>
-    <div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
-  <div style="height:3px;background:#A8D060;"></div>
+    <div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
+  <div style="height:3px;background:#4C6B1E;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#E8F5D0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:12px;font-weight:800;color:#5C8A00;">A</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#243812;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:800;color:#86BC24;">A</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:12px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">EU AI Act — Digital Campaign</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">EU AI Act — Digital Campaign</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 1–3</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 1–3</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Launch a targeted digital campaign positioning Deloitte as the leading EU AI Act advisor for technology companies. Use LinkedIn Sponsored Content targeting CTOs, General Counsel, and Compliance Directors at iGaming, Fintech, and SaaS firms. Lead with a free AI Act classification workshop — helping tech companies understand whether their systems fall under high-risk, limited-risk, or minimal-risk categories. Drive traffic to a dedicated landing page and retarget engaged visitors with regulatory deadline reminders.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">EU AI Act</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Lead Generation</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Risk Advisory</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Launch a targeted digital campaign positioning Deloitte as the leading EU AI Act advisor for technology companies. Use LinkedIn Sponsored Content targeting CTOs, General Counsel, and Compliance Directors at iGaming, Fintech, and SaaS firms. Lead with a free AI Act classification workshop — helping tech companies understand whether their systems fall under high-risk, limited-risk, or minimal-risk categories. Drive traffic to a dedicated landing page and retarget engaged visitors with regulatory deadline reminders.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">EU AI Act</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Lead Generation</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Risk Advisory</span></div>
         </div>
       </div>
     </div>
   </div>
-</div><div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
-  <div style="height:3px;background:#A8D060;"></div>
+</div><div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
+  <div style="height:3px;background:#4C6B1E;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#E8F5D0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:12px;font-weight:800;color:#5C8A00;">B</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#243812;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:800;color:#86BC24;">B</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:12px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Digital Campaign — DORA, NIS2 &amp; PSD3</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Digital Campaign — DORA, NIS2 &amp; PSD3</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 2–4</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 2–4</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Run a focused digital campaign targeting technology vendors supplying banks, insurers, and payment institutions. Promote Deloitte's expertise across DORA, NIS2, and PSD3. Many tech vendors are simultaneously in scope for all three — making Deloitte's combined advisory a compelling offer. Anchor the campaign around a free DORA Register of Information health check distributed via LinkedIn Ads targeting IT Directors, CISOs, and CFOs.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">DORA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">NIS2</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">PSD3</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Regulatory</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Run a focused digital campaign targeting technology vendors supplying banks, insurers, and payment institutions. Promote Deloitte's expertise across DORA, NIS2, and PSD3. Many tech vendors are simultaneously in scope for all three — making Deloitte's combined advisory a compelling offer. Anchor the campaign around a free DORA Register of Information health check distributed via LinkedIn Ads targeting IT Directors, CISOs, and CFOs.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">DORA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">NIS2</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">PSD3</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Regulatory</span></div>
         </div>
       </div>
     </div>
   </div>
-</div><div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
-  <div style="height:3px;background:#A8D060;"></div>
+</div><div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
+  <div style="height:3px;background:#4C6B1E;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#E8F5D0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:12px;font-weight:800;color:#5C8A00;">C</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#243812;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:800;color:#86BC24;">C</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:12px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Digital Campaign — Payroll &amp; Bookkeeping</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Digital Campaign — Payroll &amp; Bookkeeping</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 2–4</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 2–4</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Launch a targeted LinkedIn Sponsored Content campaign positioning Deloitte as the go-to payroll and bookkeeping partner for technology companies. Target CFOs, Finance Directors, and Founders at iGaming, Fintech, and SaaS firms. Drive leads to a dedicated landing page with a free payroll health-check offer. Retarget website visitors to maximise conversion.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Payroll</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Bookkeeping</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Lead Generation</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Launch a targeted LinkedIn Sponsored Content campaign positioning Deloitte as the go-to payroll and bookkeeping partner for technology companies. Target CFOs, Finance Directors, and Founders at iGaming, Fintech, and SaaS firms. Drive leads to a dedicated landing page with a free payroll health-check offer. Retarget website visitors to maximise conversion.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Payroll</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Bookkeeping</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Lead Generation</span></div>
         </div>
       </div>
     </div>
   </div>
-</div><div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
-  <div style="height:3px;background:#A8D060;"></div>
+</div><div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:8px;">
+  <div style="height:3px;background:#4C6B1E;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#E8F5D0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:12px;font-weight:800;color:#5C8A00;">D</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#243812;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:12px;font-weight:800;color:#86BC24;">D</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:12px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Digital Campaign — SOC 2 / ISAE 3402 for SaaS</span>
+            <span style="font-size:12px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Digital Campaign — SOC 2 / ISAE 3402 for SaaS</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 3–5</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 3–5</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Run a digital campaign targeting SaaS companies across three verticals. Payments platforms need SOC 2 / ISAE 3402 attestation for bank and enterprise client onboarding. Trading platforms face attestation demands from institutional clients and scrutiny under MiCA and MiFID II. Gaming and iGaming platforms require independent control reports for MGA licensing and B2B contracts. Lead with a free SOC 2 readiness assessment offer via LinkedIn targeting CTOs, CFOs, and Compliance Directors.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">SOC 2</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">ISAE 3402</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">PSD3</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">SaaS</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Payments</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Gaming</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Run a digital campaign targeting SaaS companies across three verticals. Payments platforms need SOC 2 / ISAE 3402 attestation for bank and enterprise client onboarding. Trading platforms face attestation demands from institutional clients and scrutiny under MiCA and MiFID II. Gaming and iGaming platforms require independent control reports for MGA licensing and B2B contracts. Lead with a free SOC 2 readiness assessment offer via LinkedIn targeting CTOs, CFOs, and Compliance Directors.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">SOC 2</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">ISAE 3402</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">PSD3</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">LinkedIn Ads</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">SaaS</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Payments</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Gaming</span></div>
         </div>
       </div>
     </div>
@@ -237,25 +250,25 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 </div>
 
   <div style="opacity:0;animation:fadeup .45s 0.24s ease forwards;">
-  <div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
+  <div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
   <div style="height:3px;background:#86BC24;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#F0F8DC;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:15px;font-weight:800;color:#5C8A00;">3</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#1C2A0B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:800;color:#86BC24;">3</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:13px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Run Client Workshops &amp; Launch Industry Survey</span>
+            <span style="font-size:13px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Run Client Workshops &amp; Launch Industry Survey</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 3–5</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 3–5</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Use Deloitte's own TMT Predictions and State of AI in the Enterprise reports as the basis for executive workshops with CTOs, CISOs, and CFOs at technology companies. Alongside the workshop series, launch a standalone Deloitte Technology Industry Survey — distributed digitally to 200+ technology sector contacts across iGaming, Fintech, SaaS, and Crypto segments. The survey captures AI adoption maturity, regulatory readiness gaps, compliance priorities, and appetite for outsourced services. Results are published as a branded Deloitte TMT Industry Report, generating media coverage, social content, and personalised follow-up for every respondent.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Business Development</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Thought Leadership</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Industry Survey</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Use Deloitte's own TMT Predictions and State of AI in the Enterprise reports as the basis for executive workshops with CTOs, CISOs, and CFOs at technology companies. Alongside the workshop series, launch a standalone Deloitte Technology Industry Survey — distributed digitally to 200+ technology sector contacts across iGaming, Fintech, SaaS, and Crypto segments. The survey captures AI adoption maturity, regulatory readiness gaps, compliance priorities, and appetite for outsourced services. Results are published as a branded Deloitte TMT Industry Report, generating media coverage, social content, and personalised follow-up for every respondent.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Business Development</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Thought Leadership</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Industry Survey</span></div>
         </div>
       </div>
     </div>
@@ -264,25 +277,25 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
   </div>
 
   <div style="opacity:0;animation:fadeup .45s 0.32s ease forwards;">
-  <div style="background:#fff;border:1px solid #E4E4DE;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
+  <div style="background:#0F0F0F;border:1px solid #262626;border-radius:10px;overflow:hidden;margin-bottom:10px;margin-left:0px;">
   <div style="height:3px;background:#86BC24;"></div>
   <div style="padding:14px 16px;">
     <div style="display:flex;align-items:flex-start;gap:10px;">
-      <div style="width:30px;height:30px;min-width:30px;background:#F0F8DC;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:15px;font-weight:800;color:#5C8A00;">4</div>
+      <div style="width:30px;height:30px;min-width:30px;background:#1C2A0B;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Open Sans',sans-serif;font-size:15px;font-weight:800;color:#86BC24;">4</div>
       <div style="flex:1;min-width:0;">
         <div  onclick="toggleCard(event,this)" style="display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:2px 0;">
           <div style="flex:1;display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
-            <span style="font-size:13px;font-weight:700;color:#111;font-family:sans-serif;line-height:1.3;">Meeting the Authorities, Regulators &amp; Chambers</span>
+            <span style="font-size:13px;font-weight:700;color:#fff;font-family:'Open Sans',sans-serif;line-height:1.3;">Meeting the Authorities, Regulators &amp; Chambers</span>
             
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 4–5</span>
-            <span style="font-size:13px;color:#CCC;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 4–5</span>
+            <span style="font-size:13px;color:#6E6E6E;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
         <div class="cbody" style="display:none;padding-top:10px;">
-          <p style="font-size:12px;font-weight:300;color:#555;line-height:1.7;margin-bottom:8px;">Proactively engage Malta's key regulatory and institutional bodies to strengthen Deloitte's profile as the go-to TMT advisor. Target meetings include the Malta Financial Services Authority (MFSA), Malta Gaming Authority (MGA), Malta Digital Innovation Authority (MDIA), Malta Chamber of Commerce, and Malta Chamber of SMEs. These relationships generate referrals, provide early intelligence on regulatory change, and position Deloitte as a trusted institutional partner.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">MFSA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">MGA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">MDIA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Malta Chamber</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#F0F8DC;color:#5C8A00;margin-right:4px;margin-bottom:4px;">Stakeholder Engagement</span></div>
+          <p style="font-size:12px;font-weight:300;color:#CFCFCF;line-height:1.7;margin-bottom:8px;">Proactively engage Malta's key regulatory and institutional bodies to strengthen Deloitte's profile as the go-to TMT advisor. Target meetings include the Malta Financial Services Authority (MFSA), Malta Gaming Authority (MGA), Malta Digital Innovation Authority (MDIA), Malta Chamber of Commerce, and Malta Chamber of SMEs. These relationships generate referrals, provide early intelligence on regulatory change, and position Deloitte as a trusted institutional partner.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;"><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">MFSA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">MGA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">MDIA</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Malta Chamber</span><span style="font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:3px;background:#1C2A0B;color:#86BC24;margin-right:4px;margin-bottom:4px;">Stakeholder Engagement</span></div>
         </div>
       </div>
     </div>
@@ -303,7 +316,7 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
             <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;background:#86BC24;color:#000;letter-spacing:.06em;text-transform:uppercase;margin-left:4px;">Fast 500</span>
           </div>
           <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
-            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#EFF6FF;color:#2563EB;white-space:nowrap;">Months 5–6</span>
+            <span style="font-size:9px;font-weight:600;padding:2px 7px;border-radius:8px;background:#10223D;color:#6AA6FF;white-space:nowrap;">Months 5–6</span>
             <span style="font-size:13px;color:#86BC24;transition:transform .25s;display:inline-block;" class="chev">&#9662;</span>
           </div>
         </div>
@@ -318,35 +331,35 @@ body{font-family:'Inter',sans-serif;background:#0E0E0E;color:#fff;min-height:100
 </div>
   </div>
 
-  <div style="margin-top:20px;padding-top:14px;border-top:1px solid #E4E4DE;font-size:10px;color:#BBB;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+  <div style="margin-top:20px;padding-top:14px;border-top:1px solid #262626;font-size:10px;color:#7A7A7A;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;">
     <span>TMT Practice</span><span>TMT Predictions 2025–2026</span>
   </div>
 </div></template>
 <template id="t1"><style>
 * { margin:0; padding:0; box-sizing:border-box; }
 :root {
-  --g:#86BC24; --gd:#5C8A00; --gl:#F0F8DC;
-  --blk:#111; --mid:#666; --bg:#F4F4F1; --wht:#fff; --ln:#E4E4DE;
-  --c-ig:#2563EB; --l-ig:#EFF6FF;
-  --c-ft:#7C3AED; --l-ft:#F5F3FF;
-  --c-sm:#DC2626; --l-sm:#FEF2F2;
-  --c-sa:#059669; --l-sa:#ECFDF5;
-  --c-cr:#D97706; --l-cr:#FFFBEB;
+  --g:#86BC24; --gd:#86BC24; --gl:#1C2A0B;
+  --blk:#FFFFFF; --mid:#A8A8A8; --bg:#000000; --wht:#0F0F0F; --ln:#262626;
+  --c-ig:#6AA6FF; --l-ig:#10223D;
+  --c-ft:#A78BFA; --l-ft:#1E1433;
+  --c-sm:#F87171; --l-sm:#33141A;
+  --c-sa:#34D399; --l-sa:#0F2A1E;
+  --c-cr:#FBBF24; --l-cr:#33240A;
 }
-body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--blk); padding:24px 16px 60px; }
+body { font-family:'Open Sans',sans-serif; background:var(--bg); color:var(--blk); padding:24px 16px 60px; }
 
 /* ── HEADER */
 .hdr { max-width:700px; margin:0 auto 20px; opacity:0; animation:up .5s ease forwards; }
 .badge { display:inline-flex; align-items:center; gap:6px; font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gd); margin-bottom:8px; }
 .dot { width:6px;height:6px;background:var(--g);border-radius:50%; }
-h1 { font-family:'Syne',sans-serif; font-size:clamp(20px,5vw,30px); font-weight:800; line-height:1.1; color:var(--blk); margin-bottom:6px; }
+h1 { font-family:'Open Sans',sans-serif; font-size:clamp(20px,5vw,30px); font-weight:800; line-height:1.1; color:var(--blk); margin-bottom:6px; }
 h1 em { color:var(--gd); font-style:normal; }
 .sub { font-size:12.5px; color:var(--mid); font-weight:300; line-height:1.6; }
 
 /* ── STATS */
 .stats { max-width:700px; margin:0 auto 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; opacity:0; animation:up .5s .07s ease forwards; }
 .stat { background:var(--wht); border:1px solid var(--ln); border-radius:8px; padding:12px 14px; border-top:3px solid var(--g); }
-.stat-n { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; color:var(--g); line-height:1; }
+.stat-n { font-family:'Open Sans',sans-serif; font-size:18px; font-weight:800; color:var(--g); line-height:1; }
 .stat-l { font-size:9.5px; color:var(--mid); font-weight:400; margin-top:3px; line-height:1.3; }
 
 /* ── SERVICE KEY */
@@ -372,7 +385,7 @@ h1 em { color:var(--gd); font-style:normal; }
 .seg-header { padding:16px 18px 14px; display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--ln); }
 .seg-left { display:flex;align-items:center;gap:10px; }
 .seg-icon { width:36px;height:36px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0; }
-.seg-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:800; color:var(--blk); line-height:1.2; }
+.seg-title { font-family:'Open Sans',sans-serif; font-size:13px; font-weight:800; color:var(--blk); line-height:1.2; }
 .seg-subtitle { font-size:10.5px; color:var(--mid); font-weight:300; margin-top:2px; }
 .p-pill { font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:3px 10px; border-radius:20px; white-space:nowrap; flex-shrink:0; }
 
@@ -388,7 +401,7 @@ h1 em { color:var(--gd); font-style:normal; }
   -webkit-tap-highlight-color:transparent;
   user-select:none;
 }
-.card-trigger:hover { background:#FAFCF3; }
+.card-trigger:hover { background:#141C0A; }
 
 .ct-bar { width:3px; height:38px; border-radius:2px; flex-shrink:0; }
 .ct-main { flex:1; min-width:0; }
@@ -400,15 +413,15 @@ h1 em { color:var(--gd); font-style:normal; }
 .stags { display:flex; flex-wrap:wrap; gap:4px; justify-content:flex-end; }
 .stag { font-size:9.5px; font-weight:500; padding:2px 7px; border-radius:3px; white-space:nowrap; }
 .s-r { background:var(--gl); color:var(--gd); }
-.s-p { background:#FFF3E0; color:#92400E; }
-.s-b { background:#EDE9FE; color:#5B21B6; }
+.s-p { background:#33240A; color:#FBBF24; }
+.s-b { background:#1E1433; color:#A78BFA; }
 
 /* Chevron */
 .chev { font-size:11px; color:var(--mid); transition:transform .25s; }
 .card.open .chev { transform:rotate(180deg); }
 
 /* ── EXPANDABLE PANEL */
-.card-panel { display:none; border-top:1px solid var(--ln); background:#FAFAF7; }
+.card-panel { display:none; border-top:1px solid var(--ln); background:#0A0A0A; }
 .card.open .card-panel { display:block; }
 
 /* Tab nav */
@@ -436,28 +449,35 @@ h1 em { color:var(--gd); font-style:normal; }
 .ce-head { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; margin-bottom:7px; }
 .ce-name { font-size:12.5px; font-weight:600; color:var(--blk); }
 .ce-title { font-size:10.5px; color:var(--mid); font-weight:300; margin-top:2px; line-height:1.4; }
-.conf-v { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#DCFCE7; color:#166534; white-space:nowrap; flex-shrink:0; }
-.conf-p { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#FEF9C3; color:#854D0E; white-space:nowrap; flex-shrink:0; }
+.conf-v { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#0F2A1E; color:#34D399; white-space:nowrap; flex-shrink:0; }
+.conf-p { font-size:9px; font-weight:700; padding:2px 7px; border-radius:10px; background:#33240A; color:#FBBF24; white-space:nowrap; flex-shrink:0; }
 
 .ce-links { display:flex; flex-wrap:wrap; gap:5px; }
 .cl { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:500; padding:3px 8px; border-radius:4px; text-decoration:none; transition:opacity .15s; }
 .cl:hover { opacity:.75; }
 .cl-email { background:var(--gl); color:var(--gd); }
-.cl-li    { background:#EFF6FF; color:#1D4ED8; }
-.cl-web   { background:#F3F4F6; color:#374151; }
-.cl-gen   { background:#F5F3FF; color:#5B21B6; }
+.cl-li    { background:#10223D; color:#6AA6FF; }
+.cl-web   { background:#1A1A1A; color:#D1D5DB; }
+.cl-gen   { background:#1E1433; color:#A78BFA; }
 
 .contact-note { font-size:10.5px; color:#AAAAAA; font-style:italic; padding-top:8px; line-height:1.5; }
 
 /* ── INSIGHT STRIP */
 .strip { max-width:700px; margin:28px auto 0; background:var(--blk); border-radius:10px; padding:20px 16px; display:grid; grid-template-columns:1fr 1fr; gap:16px; opacity:0; animation:up .5s .6s ease forwards; }
-.i-num { font-family:'Syne',sans-serif; font-size:20px; font-weight:800; color:var(--g); margin-bottom:3px; }
+.i-num { font-family:'Open Sans',sans-serif; font-size:20px; font-weight:800; color:var(--g); margin-bottom:3px; }
 .i-lbl { font-size:11px; color:#AAAAAA; font-weight:300; line-height:1.5; }
 
 /* ── FOOTER */
 .foot { max-width:700px; margin:14px auto 0; font-size:10.5px; color:#AAAAAA; font-weight:300; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
 
 @keyframes up { to{opacity:1;transform:translateY(0)} }
+
+/* Fast 500 branding */
+body{padding:0 !important;}
+h1{font-weight:300 !important;letter-spacing:-.02em;}
+h1 em{font-style:italic !important;font-weight:400;color:#86BC24 !important;}
+.strip{background:#0F0F0F !important;border:1px solid #262626;border-top:3px solid #86BC24;}
+.card:hover{box-shadow:0 4px 24px rgba(134,188,36,.12) !important;}
 </style>
 
 <!-- HEADER -->
@@ -478,17 +498,17 @@ h1 em { color:var(--gd); font-style:normal; }
 <div class="skey">
   <span class="skey-ttl">Key&nbsp;</span>
   <div class="sk"><span class="sk-dot" style="background:#86BC24"></span>Regulatory / Audit / Tax</div>
-  <div class="sk"><span class="sk-dot" style="background:#D97706"></span>Payroll</div>
-  <div class="sk"><span class="sk-dot" style="background:#7C3AED"></span>Bookkeeping</div>
+  <div class="sk"><span class="sk-dot" style="background:#FBBF24"></span>Payroll</div>
+  <div class="sk"><span class="sk-dot" style="background:#A78BFA"></span>Bookkeeping</div>
 </div>
 
 <!-- LEGEND -->
 <div class="legend">
-  <div class="legend-item"><span class="legend-dot" style="background:#2563EB"></span>iGaming</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#7C3AED"></span>Fintech</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#DC2626"></span>Semiconductor</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#059669"></span>SaaS / Cloud</div>
-  <div class="legend-item"><span class="legend-dot" style="background:#D97706"></span>Crypto</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#6AA6FF"></span>iGaming</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#A78BFA"></span>Fintech</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#F87171"></span>Semiconductor</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#34D399"></span>SaaS / Cloud</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#FBBF24"></span>Crypto</div>
 </div>
 
 <div class="segments">
@@ -1466,21 +1486,21 @@ function switchTab(btn, cardId, tab) {
 * { margin:0; padding:0; box-sizing:border-box; }
 :root {
   --g:   #86BC24;
-  --gd:  #5C8A00;
-  --gl:  #F0F8DC;
-  --blk: #0E0E0E;
-  --mid: #5A5A5A;
-  --bg:  #F5F5F2;
-  --wht: #FFFFFF;
-  --ln:  #E3E3DC;
-  --c-ig:#2563EB; --l-ig:#EFF6FF;
-  --c-ft:#7C3AED; --l-ft:#F5F3FF;
-  --c-sm:#DC2626; --l-sm:#FEF2F2;
-  --c-sa:#059669; --l-sa:#ECFDF5;
-  --c-cr:#D97706; --l-cr:#FFFBEB;
+  --gd:#86BC24;
+  --gl:#1C2A0B;
+  --blk:#FFFFFF;
+  --mid:#A8A8A8;
+  --bg:#000000;
+  --wht:#0F0F0F;
+  --ln:#262626;
+  --c-ig:#6AA6FF; --l-ig:#10223D;
+  --c-ft:#A78BFA; --l-ft:#1E1433;
+  --c-sm:#F87171; --l-sm:#33141A;
+  --c-sa:#34D399; --l-sa:#0F2A1E;
+  --c-cr:#FBBF24; --l-cr:#33240A;
 }
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Open Sans',sans-serif;
   background: var(--bg);
   color: var(--blk);
   padding: 32px 16px 72px;
@@ -1498,7 +1518,7 @@ body {
 }
 .dot { width:6px;height:6px;background:var(--g);border-radius:50%; }
 h1 {
-  font-family:'Playfair Display', serif;
+  font-family:'Open Sans',sans-serif;
   font-size:clamp(22px,5vw,32px); font-weight:900;
   line-height:1.1; color:var(--blk); margin-bottom:8px;
 }
@@ -1579,14 +1599,14 @@ h1 em { color:var(--gd); font-style:normal; }
   border-radius:20px; white-space:nowrap; flex-shrink:0;
   letter-spacing:.04em;
 }
-.conf-v  { background:#DCFCE7; color:#166534; }
-.conf-p  { background:#FEF9C3; color:#854D0E; }
+.conf-v  { background:#0F2A1E; color:#34D399; }
+.conf-p  { background:#33240A; color:#FBBF24; }
 
 /* contacts */
 .contacts { display:flex; flex-direction:column; gap:8px; }
 
 .contact {
-  background:#FAFAF7;
+  background:#0A0A0A;
   border:1px solid var(--ln);
   border-radius:7px; padding:10px 12px;
 }
@@ -1608,9 +1628,9 @@ h1 em { color:var(--gd); font-style:normal; }
 }
 .cl:hover { opacity:.75; }
 .cl-email { background:var(--gl); color:var(--gd); }
-.cl-li    { background:#EFF6FF; color:#1D4ED8; }
-.cl-web   { background:#F3F4F6; color:#374151; }
-.cl-gen   { background:#F5F3FF; color:#5B21B6; }
+.cl-li    { background:#10223D; color:#6AA6FF; }
+.cl-web   { background:#1A1A1A; color:#D1D5DB; }
+.cl-gen   { background:#1E1433; color:#A78BFA; }
 
 /* no-contact note */
 .noct {
@@ -1632,7 +1652,7 @@ h1 em { color:var(--gd); font-style:normal; }
   display:grid; grid-template-columns:1fr 1fr; gap:14px;
   opacity:0; animation: up .5s .6s ease forwards;
 }
-.si-n { font-family:'Playfair Display',serif; font-size:20px; font-weight:900; color:var(--g); margin-bottom:3px; }
+.si-n { font-family:'Open Sans',sans-serif; font-size:20px; font-weight:900; color:var(--g); margin-bottom:3px; }
 .si-l { font-size:11px; color:#AAAAAA; font-weight:300; line-height:1.5; }
 
 /* ── FOOTER */
@@ -1643,6 +1663,13 @@ h1 em { color:var(--gd); font-style:normal; }
 }
 
 @keyframes up { to{opacity:1;transform:translateY(0)} }
+
+/* Fast 500 branding */
+body{padding:0 !important;}
+h1{font-weight:300 !important;letter-spacing:-.02em;}
+h1 em{font-style:italic !important;font-weight:400;color:#86BC24 !important;}
+.strip{background:#0F0F0F !important;border:1px solid #262626;border-top:3px solid #86BC24;}
+.card:hover{box-shadow:0 4px 24px rgba(134,188,36,.12) !important;}
 </style>
 
 <!-- HEADER -->
@@ -1654,13 +1681,13 @@ h1 em { color:var(--gd); font-style:normal; }
 
 <!-- LEGEND -->
 <div class="legend">
-  <div class="li"><span class="ld" style="background:#166534"></span>Verified — publicly confirmed</div>
-  <div class="li"><span class="ld" style="background:#854D0E"></span>Probable — inferred from domain/role</div>
-  <div class="li"><span class="ld" style="background:#2563EB"></span>iGaming</div>
-  <div class="li"><span class="ld" style="background:#7C3AED"></span>Fintech</div>
-  <div class="li"><span class="ld" style="background:#DC2626"></span>Semiconductor</div>
-  <div class="li"><span class="ld" style="background:#059669"></span>SaaS/Cloud</div>
-  <div class="li"><span class="ld" style="background:#D97706"></span>Crypto</div>
+  <div class="li"><span class="ld" style="background:#34D399"></span>Verified — publicly confirmed</div>
+  <div class="li"><span class="ld" style="background:#FBBF24"></span>Probable — inferred from domain/role</div>
+  <div class="li"><span class="ld" style="background:#6AA6FF"></span>iGaming</div>
+  <div class="li"><span class="ld" style="background:#A78BFA"></span>Fintech</div>
+  <div class="li"><span class="ld" style="background:#F87171"></span>Semiconductor</div>
+  <div class="li"><span class="ld" style="background:#34D399"></span>SaaS/Cloud</div>
+  <div class="li"><span class="ld" style="background:#FBBF24"></span>Crypto</div>
 </div>
 
 
@@ -2371,7 +2398,7 @@ function unlock(){
     pg.querySelectorAll('script').forEach(s=>{const ns=document.createElement('script');ns.textContent=s.textContent;document.body.appendChild(ns);});
   });
   document.getElementById('lock').style.display='none';
-  document.body.style.background='#F4F4F1';
+  document.body.style.background='#000';
   document.getElementById('app').className='on';
 }
 function sp(i){
