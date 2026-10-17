@@ -128,6 +128,33 @@ h3{font-size:15px;font-weight:700;margin-bottom:6px;}
 .src-list li{padding:8px 0;border-top:1px solid var(--line);color:#bbb;font-weight:300;}
 .src-list a{word-break:break-all;}
 footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-size:11px;color:var(--mut);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+
+/* 300% SECTION: mobile cards */
+@media(max-width:600px){
+  #threshold .scroll{overflow:visible;border:none;background:none;}
+  #t300,#t300 tbody,#t300 tr,#t300 td{display:block;width:100%;}
+  #t300 tr.th{display:none;}
+  #t300 tr{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--g);border-radius:4px;padding:6px 14px;margin-bottom:10px;}
+  #t300 td{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);white-space:normal !important;}
+  #t300 td:last-child{border-bottom:none;}
+  #t300 td::before{content:attr(data-label);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:700;}
+  #t300 td:first-child{font-size:15px;color:var(--g);}
+  #t300 td:first-child::before{color:#fff;}
+  #threshold .out{grid-template-columns:1fr;}
+}
+.cands{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px;}
+@media(max-width:700px){.cands{grid-template-columns:1fr;}}
+.cand{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--g);border-radius:4px;padding:14px 16px;min-width:0;}
+.cand h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px;}
+.cand .meta{font-size:10.5px;color:var(--g);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;}
+.cand p{font-size:12.5px;color:#c8c8c8;font-weight:300;line-height:1.55;}
+.cand .chk{margin-top:8px;font-size:11px;color:#FBBF24;}
+.cand a{color:#6AA6FF;}
+.screen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:6px;}
+@media(max-width:600px){.screen{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.screen div{background:#000;border:1px solid var(--line);padding:10px 12px;border-radius:3px;}
+.screen b{display:block;font-size:20px;color:var(--g);}
+.screen span{font-size:10.5px;color:var(--mut);}
 </style>
 </head>
 <body>
@@ -213,7 +240,7 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
   <p class="intro">The 2025 ranking is cut at about 288% growth (rank 500). Rank 492 sits at 301.89%, so 300% is the practical entry bar for the EMEA Fast 500. Growth of 300% means revenue ends at <b>four times</b> the base year: base plus 300% of base.</p>
   <div class="scroll">
   <table class="tbl" id="t300">
-    <tr><th>Base-year revenue</th><th>At +300% (&times;4)</th><th>Revenue added</th><th>At report median, +668% (&times;7.7)</th><th>Clears &euro;800k floor?</th></tr>
+    <tr class="th"><th>Base-year revenue</th><th>At +300% (&times;4)</th><th>Revenue added</th><th>At report median, +668% (&times;7.7)</th><th>Clears &euro;800k floor?</th></tr>
   </table>
   </div>
   <div class="calc" style="margin-top:16px;">
@@ -232,6 +259,17 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
     </ul>
   </div>
   <p class="note">Benchmarks from the 2025 report ranking table (500 companies): lowest 287.57%, tenth percentile about 351%, median 667.91%, average 1,132%. The three-year and four-year rates assume the growth period is three or four years; the programme period is not fixed in the sources I read, so confirm it for Malta. The &euro;800k floor is from the EMEA page text and other programmes use lower floors.</p>
+
+  <h3 style="margin-top:34px;font-size:20px;font-weight:300;">Tech.mt members that <em style="color:var(--g);">could</em> reach 300%</h3>
+  <p class="intro" style="margin-top:8px;">No public source gives revenue for these companies, so none of them is confirmed at 300%. This is a screened approach list. Each company passes the visible tests in the Tech.mt data, and the growth figure comes from their own accounts once they apply.</p>
+  <div class="screen">
+    <div><b>556</b><span>Tech.mt members</span></div>
+    <div><b>97</b><span>6&ndash;10 years in operation: long enough for four years of accounts, young enough to grow fast</span></div>
+    <div><b>49</b><span>of those list product, platform, payments or hardware products</span></div>
+    <div><b>10</b><span>left after removing agencies, consultancies, resellers and large established groups</span></div>
+  </div>
+  <div class="cands"><div class="cand"><h4>Payhound</h4><div class="meta">Crypto payments &middot; Dlt, Payment Gateways</div><p>Platform for crypto payments for businesses and individuals, including OTC and B2B flows. Holds a MiCA crypto-asset service provider licence from the MFSA, reported November 2025, which allows it to scale across the EU.</p><div class="chk">To check: Licence-driven growth is the clearest catalyst in this list. Confirm base-year revenue clears the floor.</div><p class="note" style="margin-top:6px;">Source: <a href="https://paymentexpert.com/2025/11/27/payhound-secures-mica-licence-to-scale-crypto-payments-across-eu/">Payment Expert</a></p></div><div class="cand"><h4>Simply Staking</h4><div class="meta">Blockchain infrastructure &middot; Dlt, Crypto</div><p>Founded in 2018; runs blockchain infrastructure across more than 60 networks, per its Tech.mt listing.</p><div class="chk">To check: Revenue tracks token prices, so growth can swing either way. Check which four-year window applies.</div></div><div class="cand"><h4>InboundMuse (Celery)</h4><div class="meta">Hospitality SaaS &middot; Ai, Cloud Business Applications</div><p>Creator of Celery, a modular SaaS platform for enterprise hospitality businesses such as restaurants.</p><div class="chk">To check: Own product, Malta-built. Revenue base is unknown; confirm it clears the floor.</div></div><div class="cand"><h4>Talexio</h4><div class="meta">HR &amp; payroll SaaS &middot; Ai, Cloud Business Applications</div><p>Cloud HR, recruitment and payroll platform. Part of the KonnektTalexio group (97 employees across five countries, April 2026).</p><div class="chk">To check: Sits inside a group, so the independence test may exclude it. Confirm how the entity would apply.</div><p class="note" style="margin-top:6px;">Source: <a href="https://maltaceos.mt/konnekttalexio-announces-leadership-transitions/">MaltaCEOs</a></p></div><div class="cand"><h4>HRLocker</h4><div class="meta">HR SaaS for SMBs &middot; Ai, Cloud Business Applications</div><p>Cloud HR software platform for people management and recruitment in the SMB market.</p><div class="chk">To check: Confirm the company is headquartered in Malta, not only operating here.</div></div><div class="cand"><h4>Insulae (Phalanx Software)</h4><div class="meta">Proptech SaaS &middot; Cloud Business Applications</div><p>Condominium management software for managers running property portfolios.</p><div class="chk">To check: Niche, local-first product. Growth from a small base is plausible but the revenue floor may bite.</div></div><div class="cand"><h4>REM People</h4><div class="meta">Retail analytics &middot; Ai, Iot, Data Analytics</div><p>AI-powered omni-channel sales efficiency solutions for retailers.</p><div class="chk">To check: Confirm Malta HQ and the revenue base.</div></div><div class="cand"><h4>Codevlabs</h4><div class="meta">Travel tech &middot; Iot, Cloud Business Applications</div><p>End-to-end tourism technology, including reservation software.</p><div class="chk">To check: Tourism recovery years may sit in the window; check which period is measured.</div></div><div class="cand"><h4>Sport Endorse</h4><div class="meta">Sports-tech marketplace &middot; Others</div><p>Two-sided marketplace that brokers deals between athletes and brands.</p><div class="chk">To check: Marketplace revenue may be net of payouts; confirm how revenue is reported.</div></div><div class="cand"><h4>Simply Solutions</h4><div class="meta">Self-service hardware &amp; software &middot; Iot, Operational Technology</div><p>Maltese company developing self-service hardware and software management systems.</p><div class="chk">To check: Manufactures a technology product, which meets the technology test directly.</div></div></div>
+  <p class="note">Screen built from the Tech.mt members list (&ldquo;Years in Operation&rdquo;, &ldquo;Area of Business&rdquo; and company descriptions). The 151 members with 11+ years were left out because 300% is rare at that age; the 199 in the &ldquo;1&ndash;5 Years&rdquo; bucket may include four- and five-year-old companies but the list cannot separate them. Descriptions are from Tech.mt listings unless a source is shown.</p>
 </section>
 
 <section id="malta">
@@ -406,7 +444,7 @@ footer{margin-top:56px;border-top:3px solid var(--g);padding:22px 0 40px;font-si
   var bases=[50000,100000,250000,500000,1000000,2500000,5000000],h='';
   bases.forEach(function(b){
     var r=b*4,ok=r>=800000;
-    h+='<tr><td>'+e(b)+'</td><td>'+e(r)+'</td><td>+'+e(r-b)+'</td><td>'+e(b*7.68)+'</td><td>'+(ok?'Yes':'No')+'</td></tr>';
+    h+='<tr><td data-label="Base year">'+e(b)+'</td><td data-label="At +300% (×4)">'+e(r)+'</td><td data-label="Revenue added">+'+e(r-b)+'</td><td data-label="At median +668%">'+e(b*7.68)+'</td><td data-label="Clears €800k floor">'+(ok?'Yes':'No')+'</td></tr>';
   });
   document.getElementById('t300').insertAdjacentHTML('beforeend',h);
   function c(){
